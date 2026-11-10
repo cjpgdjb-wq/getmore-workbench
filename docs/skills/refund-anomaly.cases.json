@@ -1,0 +1,173 @@
+{
+  "skillId": "refund_anomaly",
+  "version": "0.1",
+  "note": "5 个退款异常 case；不是线上 A/B。",
+  "cases": [
+    {
+      "id": "rf-001",
+      "name": "退款率 18%，环比 +7pp，消耗足够",
+      "input": {
+        "accountId": "acc_rf_1",
+        "accountName": "星野数码旗舰店",
+        "planId": "plan_rf_1",
+        "planName": "标准-智能运动手表-商品卡推广",
+        "planStatus": "投放中",
+        "cost7d": 15000,
+        "roi7d": 3.4,
+        "refundRate7d": 0.18,
+        "prevRefundRate": 0.11,
+        "netRevenue7d": 42000,
+        "netOrders7d": 180,
+        "partialAuth": false,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "reduce",
+        "mustInclude": [],
+        "actionAny": [
+          "reduce",
+          "budget",
+          "-10%"
+        ],
+        "mustNotInclude": [
+          "pause_plan"
+        ],
+        "guardrail": [
+          "不暂停"
+        ]
+      }
+    },
+    {
+      "id": "rf-002",
+      "name": "退款率 22%，但净成交未授权",
+      "input": {
+        "accountId": "acc_rf_1",
+        "accountName": "星野数码旗舰店",
+        "planId": "plan_rf_1",
+        "planName": "标准-智能运动手表-商品卡推广",
+        "planStatus": "投放中",
+        "cost7d": 15000,
+        "roi7d": 3.4,
+        "refundRate7d": 0.18,
+        "prevRefundRate": 0.11,
+        "netRevenue7d": 42000,
+        "netOrders7d": 180,
+        "partialAuth": true,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "apply_budget_change",
+          "pause_plan"
+        ],
+        "guardrail": [
+          "不暂停"
+        ]
+      }
+    },
+    {
+      "id": "rf-003",
+      "name": "退款率 8%，正常",
+      "input": {
+        "accountId": "acc_rf_1",
+        "accountName": "星野数码旗舰店",
+        "planId": "plan_rf_1",
+        "planName": "标准-智能运动手表-商品卡推广",
+        "planStatus": "投放中",
+        "cost7d": 15000,
+        "roi7d": 3.4,
+        "refundRate7d": 0.08,
+        "prevRefundRate": 0.07,
+        "netRevenue7d": 42000,
+        "netOrders7d": 180,
+        "partialAuth": false,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "apply_budget_change",
+          "pause_plan"
+        ],
+        "guardrail": [
+          "不暂停"
+        ]
+      }
+    },
+    {
+      "id": "rf-004",
+      "name": "退款率 20%，但消耗只有 800",
+      "input": {
+        "accountId": "acc_rf_1",
+        "accountName": "星野数码旗舰店",
+        "planId": "plan_rf_1",
+        "planName": "标准-智能运动手表-商品卡推广",
+        "planStatus": "投放中",
+        "cost7d": 800,
+        "roi7d": 3.4,
+        "refundRate7d": 0.18,
+        "prevRefundRate": 0.11,
+        "netRevenue7d": 42000,
+        "netOrders7d": 180,
+        "partialAuth": false,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "apply_budget_change",
+          "pause_plan"
+        ],
+        "guardrail": [
+          "不暂停"
+        ]
+      }
+    },
+    {
+      "id": "rf-005",
+      "name": "退款率 16%，但计划已暂停",
+      "input": {
+        "accountId": "acc_rf_1",
+        "accountName": "星野数码旗舰店",
+        "planId": "plan_rf_1",
+        "planName": "标准-智能运动手表-商品卡推广",
+        "planStatus": "已暂停",
+        "cost7d": 15000,
+        "roi7d": 3.4,
+        "refundRate7d": 0.16,
+        "prevRefundRate": 0.15,
+        "netRevenue7d": 42000,
+        "netOrders7d": 180,
+        "partialAuth": false,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "apply_budget_change",
+          "pause_plan"
+        ],
+        "guardrail": [
+          "不暂停"
+        ]
+      }
+    }
+  ]
+}

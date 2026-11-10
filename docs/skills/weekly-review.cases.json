@@ -1,0 +1,229 @@
+{
+  "skillId": "weekly_review",
+  "version": "0.1",
+  "note": "5 个周报复盘 case；只读工作流。",
+  "cases": [
+    {
+      "id": "wk-001",
+      "name": "正常一周",
+      "input": {
+        "period": "2026-10-30 ~ 2026-11-05",
+        "accounts": [
+          {
+            "name": "简味食品旗舰店",
+            "cost": 97306,
+            "revenue": 513775,
+            "orders": 1380,
+            "roi": 5.28
+          },
+          {
+            "name": "星野数码旗舰店",
+            "cost": 60724,
+            "revenue": 180954,
+            "orders": 610,
+            "roi": 2.98
+          }
+        ],
+        "previous": {
+          "cost": 155000,
+          "revenue": 690000,
+          "orders": 1900
+        },
+        "dataHealth": {
+          "lagMinutes": 10,
+          "partialAuth": false,
+          "missing": []
+        }
+      },
+      "expected": {
+        "verdict": "report",
+        "mustInclude": [],
+        "actionAny": [
+          "report",
+          "周报"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "只读"
+        ]
+      }
+    },
+    {
+      "id": "wk-002",
+      "name": "数据延迟 + 部分授权",
+      "input": {
+        "period": "2026-10-30 ~ 2026-11-05",
+        "accounts": [
+          {
+            "name": "简味食品旗舰店",
+            "cost": 97306,
+            "revenue": 513775,
+            "orders": 1380,
+            "roi": 5.28
+          },
+          {
+            "name": "星野数码旗舰店",
+            "cost": 60724,
+            "revenue": 180954,
+            "orders": 610,
+            "roi": 2.98
+          }
+        ],
+        "previous": {
+          "cost": 155000,
+          "revenue": 690000,
+          "orders": 1900
+        },
+        "dataHealth": {
+          "lagMinutes": 90,
+          "partialAuth": true,
+          "missing": [
+            "净成交/退款"
+          ]
+        }
+      },
+      "expected": {
+        "verdict": "report",
+        "mustInclude": [],
+        "actionAny": [
+          "report",
+          "周报"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "只读"
+        ]
+      }
+    },
+    {
+      "id": "wk-003",
+      "name": "本周无消耗",
+      "input": {
+        "period": "2026-10-30 ~ 2026-11-05",
+        "accounts": [],
+        "previous": {
+          "cost": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "dataHealth": {
+          "lagMinutes": 10,
+          "partialAuth": false,
+          "missing": []
+        }
+      },
+      "expected": {
+        "verdict": "report",
+        "mustInclude": [],
+        "actionAny": [
+          "report",
+          "周报"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "只读"
+        ]
+      }
+    },
+    {
+      "id": "wk-004",
+      "name": "退款数据缺失",
+      "input": {
+        "period": "2026-10-30 ~ 2026-11-05",
+        "accounts": [
+          {
+            "name": "简味食品旗舰店",
+            "cost": 97306,
+            "revenue": 513775,
+            "orders": 1380,
+            "roi": 5.28
+          },
+          {
+            "name": "星野数码旗舰店",
+            "cost": 60724,
+            "revenue": 180954,
+            "orders": 610,
+            "roi": 2.98
+          }
+        ],
+        "previous": {
+          "cost": 155000,
+          "revenue": 690000,
+          "orders": 1900
+        },
+        "dataHealth": {
+          "lagMinutes": 12,
+          "partialAuth": false,
+          "missing": [
+            "净成交/退款"
+          ]
+        }
+      },
+      "expected": {
+        "verdict": "report",
+        "mustInclude": [],
+        "actionAny": [
+          "report",
+          "周报"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "只读"
+        ]
+      }
+    },
+    {
+      "id": "wk-005",
+      "name": "品牌账户，无支付 ROI",
+      "input": {
+        "period": "2026-10-30 ~ 2026-11-05",
+        "accounts": [
+          {
+            "name": "花间集旗舰店",
+            "cost": 20000,
+            "revenue": 0,
+            "orders": 0,
+            "roi": null
+          }
+        ],
+        "previous": {
+          "cost": 18000,
+          "revenue": 0,
+          "orders": 0
+        },
+        "dataHealth": {
+          "lagMinutes": 10,
+          "partialAuth": false,
+          "missing": []
+        }
+      },
+      "expected": {
+        "verdict": "report",
+        "mustInclude": [],
+        "actionAny": [
+          "report",
+          "周报"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "只读"
+        ]
+      }
+    }
+  ]
+}

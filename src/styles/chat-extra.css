@@ -1,0 +1,301 @@
+/* ============================================================
+   Chat & agent workspace extras
+   ============================================================ */
+
+.ws-session-empty {
+  padding: 18px 12px;
+  font-size: 11.5px;
+  color: var(--ink-4);
+  text-align: center;
+}
+
+.composer-view-label {
+  font-size: 10.5px;
+  color: var(--ink-4);
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settings-error {
+  margin-top: 6px;
+  padding: 6px 8px;
+  border-radius: var(--r-sm);
+  background: var(--red-soft);
+  border: 1px solid #ffd9d1;
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: #a5342b;
+}
+
+.agent-settings code,
+.ctx-note code {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  color: var(--ink-2);
+}
+
+/* ---------- Code blocks ---------- */
+.code-block {
+  position: relative;
+  margin: 10px 0;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--r-lg);
+  background: #f7f8fb;
+  border: 1px solid #eceef3;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.code-block pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.code-copy {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  color: var(--ink-4);
+  font-size: 10.5px;
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+
+.code-block:hover .code-copy {
+  opacity: 1;
+}
+
+.code-copy:hover {
+  color: var(--ink);
+  border-color: var(--ink-6);
+}
+
+/* ---------- Tool steps ---------- */
+.step-card {
+  background: #fcfcfe;
+}
+
+.step-card.error {
+  border-color: #ffd9d1;
+  background: #fffafa;
+}
+
+.step-hint {
+  flex: 1;
+  min-width: 0;
+  color: var(--ink-4);
+  font-size: 11.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.step-chev {
+  color: var(--ink-5);
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.step-chev.is-open {
+  transform: rotate(180deg);
+}
+
+.step-body-label {
+  margin: 4px 0 2px;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  color: var(--ink-4);
+  font-family: var(--font-sans);
+}
+
+.step-error {
+  color: #b4423a;
+}
+
+.step-status.error {
+  color: var(--red);
+}
+
+.step-status .spin {
+  animation: spin 0.9s linear infinite;
+}
+
+/* ---------- Reasoning ---------- */
+.reasoning-block {
+  margin-bottom: 8px;
+  border: 1px solid #eeeaff;
+  border-radius: var(--r-md);
+  background: #fbfaff;
+  overflow: hidden;
+}
+
+.reasoning-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 11.5px;
+  color: #6b5bd2;
+  text-align: left;
+}
+
+.reasoning-head:hover {
+  background: #f7f5ff;
+}
+
+.reasoning-body {
+  padding: 2px 12px 10px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ink-3);
+  white-space: pre-wrap;
+  border-top: 1px dashed #ebe6ff;
+  padding-top: 8px;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 4px;
+}
+
+.dots span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+  animation: blink 1.2s infinite;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ---------- Action suggestion ---------- */
+.action-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.action-hint {
+  font-size: 11px;
+  color: var(--ink-4);
+}
+
+/* ---------- Message meta ---------- */
+.agent-metric {
+  margin-left: auto;
+  font-family: var(--font-num);
+  font-size: 10.5px;
+  color: var(--ink-5);
+}
+
+.agent-actions {
+  align-items: center;
+}
+
+/* ---------- Context panel extras ---------- */
+.ctx-kpi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ctx-mini-roi {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  font-family: var(--font-num);
+  font-size: 10px;
+  color: var(--ink-4);
+}
+
+.ctx-mini-row {
+  grid-template-rows: auto auto;
+}
+
+.ctx-mini-bar {
+  margin-top: 1px;
+}
+
+/* ---------- Hero tweaks ---------- */
+.hero-title {
+  max-width: 620px;
+}
+
+.hero-sub {
+  max-width: 640px;
+}
+
+/* ---------- Thread ---------- */
+.thread-date {
+  margin-bottom: 2px;
+}
+
+.ws-thread {
+  overscroll-behavior: contain;
+}
+
+.msg-agent + .msg-agent {
+  margin-top: -4px;
+}
+
+.msg-user + .msg-agent {
+  margin-top: 4px;
+}
+
+/* ---------- Chat empty/offline ---------- */
+.offline-banner code {
+  font-family: var(--font-mono);
+}
+
+.ws-empty .composer-inner {
+  width: 100%;
+}
+
+.hero-foot code {
+  font-family: var(--font-mono);
+}
+
+/* Narrow screens */
+@media (max-width: 1180px) {
+  .ctx-mini-list {
+    display: none;
+  }
+}

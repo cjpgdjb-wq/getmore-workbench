@@ -1,0 +1,274 @@
+{
+  "generatedAt": 1793863469309,
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "verdictMatches": 5,
+    "forbiddenHits": 0
+  },
+  "results": [
+    {
+      "id": "rf-001",
+      "name": "退款率 18%，环比 +7pp，消耗足够",
+      "expectedVerdict": "reduce",
+      "actualVerdict": "reduce",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "reduce",
+        "evidence": [
+          "7天退款率18%，高于15%阈值，且较上周11%上升7pp（环比+5pp以上）",
+          "7天消耗15,000元（≥3,000元），净成交额42,000元，支付ROI 3.4",
+          "计划投放中，partialAuth=false，净成交与退款数据已授权；数据延迟10分钟，属正常"
+        ],
+        "action": "budget -10%",
+        "guardrail": [
+          "不暂停计划",
+          "单次降幅≤10%",
+          "净成交未授权时只观察"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 601,
+        "completion_tokens": 279,
+        "total_tokens": 880,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 150
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 601
+      }
+    },
+    {
+      "id": "rf-002",
+      "name": "退款率 22%，但净成交未授权",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        },
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "退款率7d为18%，上周为11%，环比+7pp，已超过15%且环比+5pp阈值",
+          "净成交未授权（partialAuth=true），netRevenue 42,000仅作参考，不用于硬性判断",
+          "7天消耗15,000、ROI 3.4、计划投放中，但净成交未授权时只观察"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "不暂停",
+          "单次降幅 ≤10%",
+          "净成交未授权时只观察"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 601,
+        "completion_tokens": 357,
+        "total_tokens": 958,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 233
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 217
+      }
+    },
+    {
+      "id": "rf-003",
+      "name": "退款率 8%，正常",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        },
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "7天退款率8.0%，上周7.0%，环比+1.0pp，未达到>15%或+5pp的降价阈值",
+          "7天净成交42000元，净订单180，支付ROI 3.4，7天消耗15000元",
+          "partialAuth=false且数据延迟10分钟，授权与数据健康正常，但当前退款波动不足以触发预算调整"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "不暂停",
+          "单次降幅 ≤10%",
+          "净成交未授权时只观察"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 601,
+        "completion_tokens": 321,
+        "total_tokens": 922,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 217
+      }
+    },
+    {
+      "id": "rf-004",
+      "name": "退款率 20%，但消耗只有 800",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        },
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "7天退款率18%，较上周11%上升7pp，超过15%但7天消耗仅800元（<3,000元），按规则只观察",
+          "净成交额7d为42,000元、净订单180单，partialAuth=false，净成交数据已授权且延迟10分钟",
+          "计划投放中，支付ROI 7d为3.4，消耗偏低不足以触发降预算"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "不暂停",
+          "单次降幅 ≤10%",
+          "净成交未授权时只观察",
+          "消耗 <3,000 只观察"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 600,
+        "completion_tokens": 327,
+        "total_tokens": 927,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 185
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 216
+      }
+    },
+    {
+      "id": "rf-005",
+      "name": "退款率 16%，但计划已暂停",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        },
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "退款率7d为16%，高于15%阈值，但较上周15%仅上升1pp，未达到环比+5pp的降价条件",
+          "净成交7d为42000元、净订单180单、支付ROI 3.4，且partialAuth=false，净成交已授权",
+          "7天消耗15000元，但计划状态为已暂停，按技能规则只能观察，不能降价或暂停"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "不暂停",
+          "单次降幅 ≤10%",
+          "净成交未授权时只观察",
+          "计划已暂停时只观察"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 601,
+        "completion_tokens": 365,
+        "total_tokens": 966,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 224
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 345
+      }
+    }
+  ]
+}

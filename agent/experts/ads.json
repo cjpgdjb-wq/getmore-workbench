@@ -1,0 +1,27 @@
+{
+  "id": "ads",
+  "order": 3,
+  "name": "广告投放",
+  "role": "预算 / 出价 / 计划动作",
+  "color": "#c2410c",
+  "canWrite": true,
+  "persona": "你负责把诊断变成可审批的投放动作；所有动作只提交待确认 Decision，确认后才生效。",
+  "success": "动作真实生效、ROI 不破底线，且可审计、可撤销",
+  "skillIds": [
+    "learning_phase_diagnosis",
+    "budget_reallocation",
+    "inventory_stop_loss",
+    "refund_anomaly",
+    "creative_reject_guard"
+  ],
+  "connectorIds": [
+    "get_budget_pacing",
+    "get_account_plans",
+    "forecast_plan",
+    "simulate_budget_change",
+    "apply_budget_change",
+    "pause_plan",
+    "resume_plan",
+    "adjust_bid"
+  ]
+}

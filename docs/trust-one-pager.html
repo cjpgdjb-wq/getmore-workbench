@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>让商家愿意把预算交给 Agent · 可信投放控制台</title>
+<style>
+  :root{
+    --ink:#101828;
+    --ink-2:#344054;
+    --muted:#667085;
+    --line:#E4E7EC;
+    --paper:#F7F5F2;
+    --card:#FFFFFF;
+    --blue:#1D4ED8;
+    --blue-soft:#EEF2FF;
+    --orange:#E8590C;
+    --orange-soft:#FFF4ED;
+    --green:#067647;
+    --green-soft:#ECFDF3;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);}
+  body{
+    font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC","Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    width:1440px;
+    margin:0 auto;
+    padding:64px 72px 56px;
+  }
+  .kicker{
+    display:flex;align-items:center;gap:12px;
+    font-size:13px;letter-spacing:.18em;font-weight:700;color:var(--orange);
+    text-transform:uppercase;
+  }
+  .kicker::before{content:"";width:28px;height:2px;background:var(--orange);display:block}
+  h1{
+    margin:18px 0 10px;
+    font-size:56px;line-height:1.12;letter-spacing:-0.02em;font-weight:800;
+  }
+  h1 em{font-style:normal;color:var(--blue)}
+  .sub{
+    max-width:980px;
+    font-size:20px;line-height:1.65;color:var(--ink-2);
+  }
+  .meta{
+    margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .meta span{
+    font-size:12.5px;color:var(--muted);border:1px solid var(--line);
+    background:rgba(255,255,255,.65);border-radius:999px;padding:6px 12px;
+  }
+
+  .rule{height:1px;background:var(--line);margin:40px 0}
+
+  .problem{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start;
+  }
+  .quote{
+    font-size:32px;line-height:1.5;font-weight:800;letter-spacing:-0.01em;
+  }
+  .quote mark{background:linear-gradient(transparent 58%, #FFE3D3 58%);color:inherit;padding:0 2px}
+  .quote-sub{margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--muted)}
+  .fears{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .fear{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:14px 16px;
+  }
+  .fear b{display:block;font-size:14.5px;margin-bottom:3px}
+  .fear small{font-size:12.5px;color:var(--muted);line-height:1.55}
+
+  .thesis{
+    margin-top:40px;
+    background:var(--ink);color:#fff;border-radius:22px;
+    padding:36px 40px;
+    display:grid;grid-template-columns:52px 1fr;gap:24px;align-items:start;
+  }
+  .thesis .bar{width:52px;height:52px;border-radius:14px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800}
+  .thesis p{margin:0;font-size:27px;line-height:1.55;font-weight:700;letter-spacing:-0.01em}
+  .thesis p em{font-style:normal;color:#FDBA74}
+  .thesis small{display:block;margin-top:12px;font-size:14px;color:#D0D5DD;line-height:1.7}
+
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+    margin:44px 0 18px;
+  }
+  .section-head h2{margin:0;font-size:28px;letter-spacing:-0.01em}
+  .section-head p{margin:0;font-size:14px;color:var(--muted);max-width:560px;line-height:1.7;text-align:right}
+
+  .contracts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .contract{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:26px 26px 22px;position:relative;overflow:hidden;
+  }
+  .contract .num{
+    font-size:52px;font-weight:800;line-height:1;color:#EAECF0;letter-spacing:-0.04em;
+  }
+  .contract h3{margin:10px 0 4px;font-size:21px;letter-spacing:-0.01em}
+  .contract .en{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .contract p{margin:12px 0 0;font-size:14px;line-height:1.75;color:var(--ink-2)}
+  .contract ul{margin:12px 0 0;padding:0;list-style:none}
+  .contract li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.75;color:var(--ink-2)}
+  .contract li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  .contract.orange li::before{background:var(--orange)}
+  .contract.green li::before{background:var(--green)}
+  .tag{
+    position:absolute;right:20px;top:22px;font-size:11.5px;font-weight:700;
+    padding:5px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);
+  }
+  .contract.orange .tag{background:var(--orange-soft);color:var(--orange)}
+  .contract.green .tag{background:var(--green-soft);color:var(--green)}
+
+  .ladder{
+    margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:28px 30px;
+  }
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
+  .step{
+    border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;background:#FCFCFD;
+  }
+  .step .lv{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--muted)}
+  .step b{display:block;font-size:16px;margin:4px 0 4px}
+  .step small{font-size:12px;line-height:1.55;color:var(--muted)}
+  .step.on{border-color:var(--blue);background:var(--blue-soft);box-shadow:0 0 0 3px rgba(29,78,216,.08)}
+  .step.on .lv{color:var(--blue)}
+  .ladder-note{display:flex;gap:26px;margin-top:16px;font-size:12.5px;color:var(--muted)}
+  .ladder-note b{color:var(--ink)}
+
+  .mechanisms{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  .mech{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .mech .ic{font-size:20px;margin-bottom:8px}
+  .mech b{display:block;font-size:15.5px;margin-bottom:6px}
+  .mech p{margin:0;font-size:12.8px;line-height:1.7;color:var(--muted)}
+
+  .bottom{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:18px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 28px}
+  .panel h3{margin:0 0 10px;font-size:18px}
+  .ns{font-size:34px;font-weight:800;letter-spacing:-0.02em;line-height:1.2}
+  .ns small{display:block;font-size:12.5px;font-weight:500;color:var(--muted);margin-top:6px;letter-spacing:0}
+  .funnel{display:flex;align-items:center;gap:6px;margin-top:18px;flex-wrap:wrap}
+  .funnel span{font-size:12px;padding:6px 9px;border-radius:8px;background:#F2F4F7;color:var(--ink-2)}
+  .funnel i{color:#98A2B3;font-style:normal;font-size:12px}
+  .guards{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .guard{background:#FCFCFD;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12.3px;color:var(--ink-2)}
+  .guard b{display:block;font-size:12.5px;margin-bottom:2px}
+
+  .footer{
+    margin-top:34px;padding-top:22px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:30px;align-items:flex-start;
+  }
+  .footer .line{font-size:15px;font-weight:700;line-height:1.7;max-width:880px}
+  .footer .line em{font-style:normal;color:var(--orange)}
+  .footer .src{font-size:11.5px;line-height:1.7;color:var(--muted);text-align:right;max-width:360px}
+
+  @media print{
+    body{background:#fff}
+    .page{padding:34px 40px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="kicker">Agent 产品设计 · 巨量投放方向 · 2026</div>
+  <h1>让商家愿意把预算<br/>交给 <em>Agent</em></h1>
+  <p class="sub">可信投放控制台：不是“更聪明的 AI 投手”，而是一套让商家敢授权、敢扩权、也敢退出的机制。四份合同，一个信任阶梯。</p>
+  <div class="meta">
+    <span>商家 / 投手 / 服务商</span>
+    <span>千川 · 乘方</span>
+    <span>分析 → 建议 → 执行 → 对账</span>
+    <span>信任 = 能力 × 善意 × 一致性 × 可预测性</span>
+  </div>
+
+  <div class="rule"></div>
+
+  <section class="problem">
+    <div>
+      <div class="quote">商家不是不接受自动化，<br/>而是不接受<mark>不可逆的自动化</mark>。</div>
+      <div class="quote-sub">公开信息里，投手说“全域推广就是个黑盒，我根本不知道能控制什么”；广告主说“不会把程序化投放交给 LLM Agent”，因为一个小数点错误就可能是财务灾难。问题不在模型聪不聪明，而在决策不可逆、过程不可见、责任不可追。</div>
+    </div>
+    <div class="fears">
+      <div class="fear"><b>结果不可预期</b><small>它会不会拿我的钱做实验？</small></div>
+      <div class="fear"><b>过程不可见</b><small>它为什么这么干？</small></div>
+      <div class="fear"><b>权限不可控</b><small>我能叫停、能限制吗？</small></div>
+      <div class="fear"><b>责任不可追</b><small>出了事谁负责？</small></div>
+      <div class="fear"><b>能力不可评</b><small>它凭什么让我信？</small></div>
+      <div class="fear"><b>关系不可逆</b><small>我能不能走？</small></div>
+    </div>
+  </section>
+
+  <section class="thesis">
+    <div class="bar">“</div>
+    <div>
+      <p>信任不是“相信模型更聪明”，而是“相信一套<em>可授权、可预演、可熔断、可对账、可退出</em>的机制”。</p>
+      <small>所以产品不叫 AI 投手，叫可信投放控制台：Agent 负责分析和提案，商家负责定边界；每一笔钱都在授权内，每一个判断都有证据，每一次执行都可回滚。</small>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <h2>四份合同：把信任变成可验证的承诺</h2>
+    <p>确认弹窗只解决“执行前看一眼”；真正决定商家敢不敢用的，是授权、证据、对账、退出四件事。</p>
+  </div>
+
+  <section class="contracts">
+    <div class="contract orange">
+      <div class="tag">钱与权限</div>
+      <div class="num">01</div>
+      <h3>授权合同</h3>
+      <div class="en">Mandate</div>
+      <p>商家给的不是一个“开关”，而是一张有额度、有范围、有期限、可撤销的授权书。</p>
+      <ul>
+        <li>总预算 / 单日上限 / 单次动作上限 / <b>最大损失上限</b></li>
+        <li>允许动作、排除场景（品牌、大促、跨账户）</li>
+        <li>审批矩阵：低风险自动、中风险确认、高风险核对</li>
+        <li>按账户/商品拆额度，到期自动失效</li>
+      </ul>
+    </div>
+    <div class="contract">
+      <div class="tag">为什么</div>
+      <div class="num">02</div>
+      <h3>证据合同</h3>
+      <div class="en">Evidence</div>
+      <p>每个结论和动作，都能被商家质疑、下钻、复现；不知道就说不知道。</p>
+      <ul>
+        <li>数据层：来源、口径、时间、样本、缺失</li>
+        <li>逻辑层：依据、反事实、替代方案、置信区间</li>
+        <li>责任层：谁批准、错了怎么办、怎么回滚</li>
+        <li>给区间，不给假精确；给“不行动”选项</li>
+      </ul>
+    </div>
+    <div class="contract green">
+      <div class="tag">有没有用</div>
+      <div class="num">03</div>
+      <h3>对账合同</h3>
+      <div class="en">Ledger</div>
+      <p>每个预测都登记，T+1/T+3/T+7 对实际；准确率公开，错误主动复盘。</p>
+      <ul>
+        <li>预测值 + 区间 + 置信度 + 方法 + 数据缺口</li>
+        <li>校准曲线；分场景 / 分行业看准确率</li>
+        <li>事故分级、披露时限、补偿规则、修复五步</li>
+        <li>战绩可导出，不靠平台自说自话</li>
+      </ul>
+    </div>
+    <div class="contract">
+      <div class="tag">能不能走</div>
+      <div class="num">04</div>
+      <h3>退出合同</h3>
+      <div class="en">Exit</div>
+      <p>退出权是信任的前提，不是信任的例外。</p>
+      <ul>
+        <li>一键暂停自动执行，保留只读分析</li>
+        <li>一键撤销授权，待确认提案作废</li>
+        <li>按时间窗 / 账户 / 动作批量回滚</li>
+        <li>授权书、决策、对账、事故报告可导出</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <h2>一个信任阶梯：按额度给，不按功能给</h2>
+    <p>升级要慢、降级要快；降级不是惩罚，是保护。商家看到的是“再 2 周无事故可升 L3”，不是“开通自动投放”。</p>
+  </div>
+
+  <section class="ladder">
+    <div class="steps">
+      <div class="step"><div class="lv">L0</div><b>观察</b><small>只读分析、回答、复盘；不花钱。</small></div>
+      <div class="step"><div class="lv">L1</div><b>建议</b><small>给建议和证据，商家自己执行。</small></div>
+      <div class="step on"><div class="lv">L2</div><b>提案审批</b><small>Agent 提案，人确认后执行；大多数商家的起点。</small></div>
+      <div class="step"><div class="lv">L3</div><b>额度内自动</b><small>授权内自动执行，异常才找人。</small></div>
+      <div class="step"><div class="lv">L4</div><b>托管</b><small>更大额度内自动，周度复盘。</small></div>
+    </div>
+    <div class="ladder-note">
+      <div><b>升 L3：</b>20+ 审批动作、预测误差 ≤15%、0 P0/P1 事故、商家主动开启</div>
+      <div><b>降 L2：</b>单次损失 &gt; 上限 50%、误停 ≥2 次、预测误差 &gt;25% 连续 2 周</div>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <h2>四个关键机制：让机制跑起来</h2>
+    <p>影子模式先证明，探索保护防“人手痒”，熔断把最大损失写进产品，激励对齐解决平台 Agent 的原罪。</p>
+  </div>
+
+  <section class="mechanisms">
+    <div class="mech"><div class="ic">◐</div><b>影子模式</b><p>2–4 周只提案不执行，和人工决策对比；用“如果当时听它的”证明能力，再谈授权。</p></div>
+    <div class="mech"><div class="ic">⏸</div><b>探索保护</b><p>学习期/爆发前标记“探索窗口”；“建议不动”是一等公民；人工干预先预演影响。</p></div>
+    <div class="mech"><div class="ic">⚡</div><b>熔断止损</b><p>ROI 连续低于底线、损失达上限 80%、动作失败率过高时，停止自动、保留人工、先止损再解释。</p></div>
+    <div class="mech"><div class="ic">⚖</div><b>激励对齐</b><p>目标由商家定义；“不投放”是合法建议；账本可导出/第三方审计；收费透明。</p></div>
+  </section>
+
+  <section class="bottom">
+    <div class="panel">
+      <h3>北极星：可信自动化消耗占比</h3>
+      <div class="ns">授权内自动执行消耗 / 总消耗<small>必须同时看预测校准（MAPE）与事故损失率，否则可以通过“什么都自动”刷高</small></div>
+      <div class="funnel">
+        <span>试用分析</span><i>→</i><span>影子模式</span><i>→</i><span>首次授权</span><i>→</i><span>首次自动</span><i>→</i><span>30 天留存</span><i>→</i><span>扩权</span><i>→</i><span>推荐</span>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>护栏：别把“信任”做成“盲信”</h3>
+      <div class="guards">
+        <div class="guard"><b>橡皮图章率</b>审批 &lt;3 秒且未看证据</div>
+        <div class="guard"><b>预测校准</b>MAPE / 90% 区间覆盖</div>
+        <div class="guard"><b>误停率</b>被暂停但本可恢复</div>
+        <div class="guard"><b>事故损失率</b>P0/P1 损失 / 消耗</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="line">信任不是 UI，是制度；不是一次确认，是一套可验证的承诺。<em>先让商家敢看，再让他敢信，最后才让他敢交。</em></div>
+    <div class="src">配套文档：docs/merchant-trust-design.md<br/>公开信号：Digiday · 鸟哥笔记 · 商业观察 · 巨量引擎信任报告</div>
+  </div>
+
+</div>
+</body>
+</html>

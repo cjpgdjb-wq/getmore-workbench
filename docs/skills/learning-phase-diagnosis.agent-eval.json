@@ -1,0 +1,206 @@
+{
+  "generatedAt": 1793865562223,
+  "summary": {
+    "goal": "诊断学习期计划「标准-轻量徒步鞋-短视频带货」（plan_id=1739810000142542，account_id=1723560000018017，账户：沐野运动旗舰店）：ROI 3.67 低于目标 4.3，样本 33/天；如果库存和余额允许，必须先调用 simulate_budget_change，再提交预算 -10% 的待确认动作，不要暂停，也不要加预算。",
+    "plan": "标准-轻量徒步鞋-短视频带货",
+    "account": "沐野运动旗舰店",
+    "attempts": 3,
+    "passedAttempts": 3,
+    "passAt3": true,
+    "results": [
+      {
+        "attempt": 1,
+        "pass": true,
+        "passed": 6,
+        "total": 6,
+        "error": null,
+        "checks": [
+          {
+            "name": "选到 analytics + ads",
+            "pass": true,
+            "actual": "analytics,ads"
+          },
+          {
+            "name": "查了计划事实",
+            "pass": true,
+            "actual": "get_account_plans,query_plans,query_plans"
+          },
+          {
+            "name": "做了预算模拟",
+            "pass": true,
+            "actual": "simulate_budget_change"
+          },
+          {
+            "name": "提交预算 -10% 待确认",
+            "pass": true,
+            "actual": "14000 → 12600"
+          },
+          {
+            "name": "没有暂停提案",
+            "pass": true,
+            "actual": "无"
+          },
+          {
+            "name": "结论提到学习期/预算",
+            "pass": true,
+            "actual": "学习期=true 预算=true"
+          }
+        ],
+        "toolCalls": [
+          "get_budget_pacing",
+          "get_account_plans",
+          "query_plans",
+          "get_account_trend",
+          "compare_periods",
+          "query_accounts",
+          "simulate_budget_change",
+          "query_plans",
+          "get_org_summary",
+          "apply_budget_change"
+        ],
+        "experts": [
+          "analytics",
+          "ads"
+        ],
+        "pending": [
+          {
+            "tool": "apply_budget_change",
+            "targetName": "沐野运动旗舰店",
+            "before": 14000,
+            "after": 12600,
+            "status": "pending"
+          }
+        ],
+        "synthesis": "### 结论\n对「标准-轻量徒步鞋-短视频带货」不暂停、不加预算；广告投放专家已提交沐野运动旗舰店账户日预算从 14,000 元降到 12,600 元（-10%）的动作，**待优化师确认，当前未生效**。\n\n### 关键依据\n1. 该计划 10-30~11-05 消耗 22,967、支付 84,319、订单 232，ROI 3.67＜4.3，CPA 99 元；日均仅 33 单、单素材，不具备放量条件。\n2. 账户 CPM 22.19 高于大盘 17.56，获客成本偏高；库存 3,566 件/107.59 天、余额 105,731 元/15.82 天均安全，因此不暂停、不加预算。\n3. 数据分析师反对降预算（担心压缩样本、拉长学习期），但模拟显示 ROI 3.63→3.62、CPA 99.13→99.5，代价可控。裁决：先小步回撤 -10%，不扩大收缩。\n\n### 执行方案\n1. **待优化师确认**：沐野运动旗舰店日预算 14,000→12,600 元；确认前不生效，确认后计划 1739810000142542 预算仍为 5,051 元。\n2. 接口仅支持账户级预算；若需严格按计划调整，**未提交**，需优化师在页面将该计划预算下调 10%。\n3. 下轮补素材/人群测试；低效计划暂停单**未提交**。\n\n### 风险与验证\n3 天后看计划 ROI 是否≥3.67、CPA≤99、日订单≥30及余额；若 ROI＜3.5 或订单跌破 25，建议撤销并回调至 14,000 元。"
+      },
+      {
+        "attempt": 2,
+        "pass": true,
+        "passed": 6,
+        "total": 6,
+        "error": null,
+        "checks": [
+          {
+            "name": "选到 analytics + ads",
+            "pass": true,
+            "actual": "analytics,ads"
+          },
+          {
+            "name": "查了计划事实",
+            "pass": true,
+            "actual": "query_plans,get_account_plans"
+          },
+          {
+            "name": "做了预算模拟",
+            "pass": true,
+            "actual": "simulate_budget_change"
+          },
+          {
+            "name": "提交预算 -10% 待确认",
+            "pass": true,
+            "actual": "14000 → 12600"
+          },
+          {
+            "name": "没有暂停提案",
+            "pass": true,
+            "actual": "无"
+          },
+          {
+            "name": "结论提到学习期/预算",
+            "pass": true,
+            "actual": "学习期=true 预算=true"
+          }
+        ],
+        "toolCalls": [
+          "query_plans",
+          "get_account_trend",
+          "compare_periods",
+          "query_accounts",
+          "get_budget_pacing",
+          "get_account_plans",
+          "simulate_budget_change",
+          "apply_budget_change"
+        ],
+        "experts": [
+          "analytics",
+          "ads"
+        ],
+        "pending": [
+          {
+            "tool": "apply_budget_change",
+            "targetName": "沐野运动旗舰店",
+            "before": 14000,
+            "after": 12600,
+            "status": "pending"
+          }
+        ],
+        "synthesis": "### 结论\n计划「标准-轻量徒步鞋-短视频带货」ROI 3.67 低于 4.3 目标，但库存、余额均无压力，因此判断问题在效率而不在断供。我决定降预算控量、不暂停：账户级日预算 14,000→12,600 元的动作已提交，**待优化师确认，确认前线上无变更**。\n\n### 关键依据\n- 差距主要来自流量成本：计划 CPM 22.19，高于品牌大盘 17.56；CPA 99.13 元，是 50 元订单成本线的近 2 倍；同店近 7 天 ROI 3.63、环比 -4.64%。\n- 风险约束不足：轻量徒步鞋库存 3,566 件、可售 107.59 天，账户余额 105,731 元、可支撑 15.82 天，远高于 1,000 元充值线。\n- 模拟校验通过：simulate_budget_change(-10%) 预测 ROI 3.62、CPA 99.5、支付减少 17,551 元，within_budget_cap / meets_roi_floor / balance_ok 全部为 true，护栏无违规。\n\n### 执行方案\n1. **待优化师确认**：沐野运动旗舰店（1723560000018017）账户级日预算 14,000→12,600 元/日（决策 dec_mw397nti_zrzmx，2 小时有效）。确认后生效，ROI 预计 3.62、日消耗降约 1,400 元；被驳回或过期，则维持 14,000 元不变。\n2. **未提交**：计划级暂停、加预算、出价调整均未提交——任务明确禁止暂停与加预算，且无计划级预算接口。\n3. **需留意**：本笔作用于账户级，同账户「全域-防风冲锋衣-直播间引流」（ROI 3.59、库存 231 天）会被间接收量，确认时一并复核。\n\n### 风险与验证\n专家分歧裁决：数据分析拒给测算，投放专家已实测。我采纳实测值，但降 10% 仅降消耗，不拉回 4.3，**不视其为达标手段**。3 天后看 ROI 是否≥4.0、CPA 是否≤90 元；未达则改出价 -5%~-10%，而非继续压预算；库存跌破可售 7 天立即转库存止损口径。"
+      },
+      {
+        "attempt": 3,
+        "pass": true,
+        "passed": 6,
+        "total": 6,
+        "error": null,
+        "checks": [
+          {
+            "name": "选到 analytics + ads",
+            "pass": true,
+            "actual": "analytics,ads"
+          },
+          {
+            "name": "查了计划事实",
+            "pass": true,
+            "actual": "query_plans,get_account_plans,query_plans"
+          },
+          {
+            "name": "做了预算模拟",
+            "pass": true,
+            "actual": "simulate_budget_change"
+          },
+          {
+            "name": "提交预算 -10% 待确认",
+            "pass": true,
+            "actual": "14000 → 12600"
+          },
+          {
+            "name": "没有暂停提案",
+            "pass": true,
+            "actual": "无"
+          },
+          {
+            "name": "结论提到学习期/预算",
+            "pass": true,
+            "actual": "学习期=true 预算=true"
+          }
+        ],
+        "toolCalls": [
+          "query_plans",
+          "query_accounts",
+          "get_account_trend",
+          "compare_periods",
+          "get_budget_pacing",
+          "get_account_plans",
+          "simulate_budget_change",
+          "query_plans",
+          "get_org_summary",
+          "apply_budget_change"
+        ],
+        "experts": [
+          "analytics",
+          "ads"
+        ],
+        "pending": [
+          {
+            "tool": "apply_budget_change",
+            "targetName": "沐野运动旗舰店",
+            "before": 14000,
+            "after": 12600,
+            "status": "pending"
+          }
+        ],
+        "synthesis": "### 结论\n建议优化师确认沐野账户预算降低10%，作为风险控制手段；不要把它当成提升效率的手段。计划「标准-轻量徒步鞋-短视频带货」ROI 3.67 低于 4.3，根本原因是 CPA 99 元高于目标值 84.5 元。\n\n### 关键依据\n- 该计划消耗 22,967、支付 84,319、订单 232，ROI 3.67、CPA 99；退款率 14%、创意仅 1 条。\n- 库存 3,566（可售 107.59 天）、余额 105,731（可支撑 15.82 天），两项都安全；“样本 33/天不足”不成立。\n- 模拟预算降低10%后：账户消耗从 46,791 降至 42,112，ROI 从 3.63 降至 3.62，CPA 从 99.13 升至 99.50；影响有限，因此定级为账户级风险控制收缩。\n\n### 执行方案\n1. **待优化师确认**：沐野账户日预算从 14,000 降至 12,600 元/日（−10%，dec_mw3987ek_cd5c7）。确认前仍为 14,000；确认后按 12,600 执行。\n2. 广告投放专家提交的是账户级预算调整，没有提交计划层调整；该动作会同时影响「全域-防风冲锋衣-直播间引流」（ROI 3.59），建议优化师确认前复核。\n3. 出价和素材方面的提效动作未提交；本轮不暂停计划，也不增加预算。\n\n### 风险与验证\n3 天后重点看计划 ROI 是否达到 4.3、CPA 是否不高于 84.5、日订单是否守住 33、退款率是否低于 14%。如果 ROI 低于 3.5，或订单明显下降，建议提交将预算回滚到 14,000 的动作，待优化师确认。"
+      }
+    ]
+  }
+}

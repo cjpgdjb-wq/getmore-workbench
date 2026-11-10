@@ -1,0 +1,557 @@
+{
+  "generatedAt": 1793862916296,
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "verdictMatches": 10,
+    "forbiddenHits": 0
+  },
+  "results": [
+    {
+      "id": "is-001",
+      "name": "库存 2 天 + 计划仍在投放",
+      "expectedVerdict": "pause",
+      "actualVerdict": "pause",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "库存",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "pause",
+        "evidence": [
+          "可售天数仅 2 天（库存 60 件、日均 30 单），已低于 3 天红线，属于库存要断",
+          "计划仍在投放中：7 天消耗 28000 元，ROI 3.6，仍会持续消耗库存",
+          "关键数据均可用：商品在售、计划投放中，库存与消耗数据延迟仅 10 分钟，因此不是数据缺失的场景"
+        ],
+        "action": "pause",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停/降预算可回滚"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 506,
+        "completion_tokens": 132,
+        "total_tokens": 638,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 250
+      }
+    },
+    {
+      "id": "is-002",
+      "name": "库存 5 天 + 计划仍在投放",
+      "expectedVerdict": "reduce",
+      "actualVerdict": "reduce",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "库存",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "reduce",
+        "evidence": [
+          "商品库存150件，按日均30单测算可售约5天，处于4–7天降预算区间",
+          "计划状态为投放中，7日消耗22000元，ROI 4.1，仍在持续消耗",
+          "商品在售、库存数据可用，数据延迟8分钟，未触发暂停条件"
+        ],
+        "action": "budget -20%",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停/降预算可回滚"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 506,
+        "completion_tokens": 396,
+        "total_tokens": 902,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 285
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 250
+      }
+    },
+    {
+      "id": "is-003",
+      "name": "库存充足",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "库存充足",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "暂停",
+          "hit": false
+        },
+        {
+          "keyword": "降预算",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "商品库存1200件，可售天数30天，远高于7天安全线",
+          "计划7天消耗18000元，ROI 4.7，计划状态为投放中",
+          "商品在售，数据延迟9分钟，库存与消耗数据可用"
+        ],
+        "action": "无需操作（只观察）",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停/降预算可回滚"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 507,
+        "completion_tokens": 338,
+        "total_tokens": 845,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 237
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 251
+      }
+    },
+    {
+      "id": "is-004",
+      "name": "低库存但计划已暂停",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "已暂停",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "暂停计划",
+          "hit": false
+        },
+        {
+          "keyword": "加预算",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "商品「法式碎花连衣裙」库存 40 件、可售天数仅 2 天，库存紧张",
+          "计划「标准-法式碎花连衣裙-短视频带货」当前状态为已暂停，近 7 天消耗 0、ROI 0，无在投消耗",
+          "数据延迟 12 分钟，库存与商品（在售）数据可用，无缺失"
+        ],
+        "action": "无需动作：计划已暂停且无消耗，维持现状观察",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "恢复投放或调整预算前需重新核对可售天数，动作均可回滚"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 505,
+        "completion_tokens": 249,
+        "total_tokens": 754,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 249
+      }
+    },
+    {
+      "id": "is-005",
+      "name": "库存数据缺失",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "数据缺失",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        },
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "库存数据缺失：stock=null、stockDays=null，无法判断可售天数",
+          "计划状态为投放中，近7天消耗16000元，ROI 2.9",
+          "商品在售、日均订单25，但库存未知，不能确认库存≤3天或4–7天"
+        ],
+        "action": "无动作（只观察）",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停/降预算可回滚"
+        ],
+        "confidence": "low"
+      },
+      "usage": {
+        "prompt_tokens": 503,
+        "completion_tokens": 770,
+        "total_tokens": 1273,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 660
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 247
+      }
+    },
+    {
+      "id": "is-006",
+      "name": "库存 3 天，刚好到暂停线",
+      "expectedVerdict": "pause",
+      "actualVerdict": "pause",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        },
+        {
+          "keyword": "加预算",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "pause",
+        "evidence": [
+          "商品「冷萃茶包组合」库存 90 件、日均 30 单，可售天数仅 3 天，已触发 ≤3 天优先暂停阈值",
+          "计划「标准-冷萃茶包组合-达人相似人群」状态为投放中，近 7 天消耗 22000 元，仍在持续消耗",
+          "商品状态为在售，数据延迟 10 分钟，库存与计划数据可用，符合执行暂停动作条件"
+        ],
+        "action": "pause",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停/降预算可回滚"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 509,
+        "completion_tokens": 302,
+        "total_tokens": 811,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 163
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 381
+      }
+    },
+    {
+      "id": "is-007",
+      "name": "库存 4 天，刚好进降预算区",
+      "expectedVerdict": "reduce",
+      "actualVerdict": "reduce",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        },
+        {
+          "keyword": "加预算",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "reduce",
+        "evidence": [
+          "商品可售天数为 4 天，处于 4–7 天降预算区间",
+          "计划 plan_inv_6 仍在投放中，近 7 天消耗 22000 元、ROI 5.2",
+          "库存 120 件、日均订单 30 单，数据延迟 10 分钟，库存数据可用"
+        ],
+        "action": "budget -20%",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停/降预算可回滚"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 509,
+        "completion_tokens": 340,
+        "total_tokens": 849,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 221
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 253
+      }
+    },
+    {
+      "id": "is-008",
+      "name": "库存 8 天，刚过降预算区",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        },
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "可售天数 8 天（库存 240，日销 30），高于 7 天阈值，库存充足",
+          "计划状态为投放中，7 日消耗 22000，ROI 5.2",
+          "商品状态在售，数据延迟 10 分钟，库存与商品数据可用"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停/降预算可回滚"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 509,
+        "completion_tokens": 623,
+        "total_tokens": 1132,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 515
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 253
+      }
+    },
+    {
+      "id": "is-009",
+      "name": "商品已下架",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        },
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "商品状态为已下架，按失败处理规则只观察，不提交暂停/降预算动作",
+          "库存20件，可售天数2天（≤3天），计划仍在投放，7日消耗22000元",
+          "ROI7d为5.2，数据延迟10分钟；因商品已下架，不向库存不足商品加预算"
+        ],
+        "action": "observe（不提交动作）",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停/降预算可回滚；商品已下架时仅观察不动作"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 510,
+        "completion_tokens": 1049,
+        "total_tokens": 1559,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 917
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 254
+      }
+    },
+    {
+      "id": "is-010",
+      "name": "计划已结束",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        },
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "计划「标准-冷萃茶包组合-达人相似人群」状态为已结束，近 7 日消耗为 0，当前无在投消耗需要止损",
+          "商品「冷萃茶包组合」在售，库存 20 件、可售约 2 天，日销 30 单，库存偏低，但已没有投放消耗，因此不构成投放风险",
+          "数据延迟 10 分钟，库存与商品数据可用，没有数据缺失"
+        ],
+        "action": "不提交动作：计划已结束，仅观察；库存 ≤3 天，如后续重启投放，须先补货再投",
+        "guardrail": [
+          "不向库存不足的商品加预算",
+          "暂停或降预算的动作都可以回滚",
+          "库存数据缺失或计划已结束时，只观察，不提交 Decision"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 508,
+        "completion_tokens": 409,
+        "total_tokens": 917,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 224
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 252
+      }
+    }
+  ]
+}

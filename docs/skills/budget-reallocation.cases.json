@@ -1,0 +1,525 @@
+{
+  "skillId": "budget_reallocation",
+  "version": "0.1",
+  "note": "3 个账户级预算重排 case；不是线上 A/B。",
+  "cases": [
+    {
+      "id": "br-001",
+      "name": "低 ROI 账户 → 高 ROI 账户",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "1723560000014109",
+            "accountName": "星野数码旗舰店",
+            "roi7d": 2.98,
+            "roiGoal": 3.5,
+            "cost7d": 60724,
+            "budget": 18000,
+            "balanceDays": 12,
+            "stockDays": 20,
+            "dataLagMinutes": 12,
+            "partialAuth": false
+          },
+          {
+            "accountId": "1723560000009224",
+            "accountName": "简味食品旗舰店",
+            "roi7d": 5.28,
+            "roiGoal": 3.5,
+            "cost7d": 97306,
+            "budget": 19800,
+            "balanceDays": 8,
+            "stockDays": 30,
+            "dataLagMinutes": 9,
+            "partialAuth": false
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "reallocate",
+        "mustInclude": [],
+        "moves": {
+          "count": 2,
+          "decrease": 1,
+          "increase": 1,
+          "deltas": [
+            -10,
+            10
+          ]
+        },
+        "mustNotInclude": [
+          "暂停",
+          "增加总预算"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算"
+        ]
+      }
+    },
+    {
+      "id": "br-002",
+      "name": "没有高 ROI 承接账户",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_1",
+            "accountName": "账户 A",
+            "roi7d": 2.5,
+            "roiGoal": 3.5,
+            "cost7d": 30000,
+            "budget": 10000,
+            "balanceDays": 10,
+            "stockDays": 20,
+            "dataLagMinutes": 10,
+            "partialAuth": false
+          },
+          {
+            "accountId": "acc_2",
+            "accountName": "账户 B",
+            "roi7d": 2.8,
+            "roiGoal": 3.5,
+            "cost7d": 12000,
+            "budget": 6000,
+            "balanceDays": 8,
+            "stockDays": 18,
+            "dataLagMinutes": 11,
+            "partialAuth": false
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [
+          {
+            "label": "只观察",
+            "any": [
+              "只观察",
+              "observe"
+            ]
+          }
+        ],
+        "moves": {
+          "count": 0
+        },
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "br-003",
+      "name": "承接账户库存/余额不足",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_3",
+            "accountName": "账户 C",
+            "roi7d": 2.6,
+            "roiGoal": 3.5,
+            "cost7d": 28000,
+            "budget": 12000,
+            "balanceDays": 9,
+            "stockDays": 20,
+            "dataLagMinutes": 8,
+            "partialAuth": false
+          },
+          {
+            "accountId": "acc_4",
+            "accountName": "账户 D",
+            "roi7d": 4.8,
+            "roiGoal": 3.5,
+            "cost7d": 8000,
+            "budget": 5000,
+            "balanceDays": 1,
+            "stockDays": 2,
+            "dataLagMinutes": 15,
+            "partialAuth": false
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [
+          {
+            "label": "只观察",
+            "any": [
+              "只观察",
+              "observe"
+            ]
+          }
+        ],
+        "moves": {
+          "count": 0
+        },
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "br-004",
+      "name": "数据延迟 + 部分授权",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_5",
+            "accountName": "账户 E",
+            "roi7d": 2.4,
+            "roiGoal": 3.5,
+            "cost7d": 30000,
+            "budget": 12000,
+            "balanceDays": 10,
+            "stockDays": 20,
+            "dataLagMinutes": 95,
+            "partialAuth": true
+          },
+          {
+            "accountId": "acc_6",
+            "accountName": "账户 F",
+            "roi7d": 4.6,
+            "roiGoal": 3.5,
+            "cost7d": 9000,
+            "budget": 6000,
+            "balanceDays": 9,
+            "stockDays": 22,
+            "dataLagMinutes": 90,
+            "partialAuth": true
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [
+          {
+            "label": "数据健康",
+            "any": [
+              "数据延迟",
+              "延迟",
+              "授权",
+              "数据健康"
+            ]
+          },
+          {
+            "label": "只观察",
+            "any": [
+              "只观察",
+              "observe"
+            ]
+          }
+        ],
+        "moves": {
+          "count": 0
+        },
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "br-005",
+      "name": "承接账户库存/余额偏紧",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_7",
+            "accountName": "账户 G",
+            "roi7d": 2.7,
+            "roiGoal": 3.5,
+            "cost7d": 26000,
+            "budget": 10000,
+            "balanceDays": 8,
+            "stockDays": 20,
+            "dataLagMinutes": 8,
+            "partialAuth": false
+          },
+          {
+            "accountId": "acc_8",
+            "accountName": "账户 H",
+            "roi7d": 4.7,
+            "roiGoal": 3.5,
+            "cost7d": 7000,
+            "budget": 5000,
+            "balanceDays": 2,
+            "stockDays": 3,
+            "dataLagMinutes": 12,
+            "partialAuth": false
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [
+          {
+            "label": "库存",
+            "any": [
+              "库存"
+            ]
+          },
+          {
+            "label": "余额",
+            "any": [
+              "余额"
+            ]
+          },
+          {
+            "label": "只观察",
+            "any": [
+              "只观察",
+              "observe"
+            ]
+          }
+        ],
+        "moves": {
+          "count": 0
+        },
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "br-006",
+      "name": "库存/余额刚好达护栏",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_9",
+            "accountName": "账户 I",
+            "roi7d": 2.7,
+            "roiGoal": 3.5,
+            "cost7d": 26000,
+            "budget": 10000,
+            "balanceDays": 8,
+            "stockDays": 7,
+            "dataLagMinutes": 10,
+            "partialAuth": false
+          },
+          {
+            "accountId": "acc_10",
+            "accountName": "账户 J",
+            "roi7d": 4.8,
+            "roiGoal": 3.5,
+            "cost7d": 8000,
+            "budget": 5000,
+            "balanceDays": 8,
+            "stockDays": 7,
+            "dataLagMinutes": 10,
+            "partialAuth": false
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "reallocate",
+        "mustInclude": [],
+        "moves": {
+          "count": 2,
+          "decrease": 1,
+          "increase": 1,
+          "deltas": [
+            -10,
+            10
+          ]
+        },
+        "mustNotInclude": [
+          "暂停"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算"
+        ]
+      }
+    },
+    {
+      "id": "br-007",
+      "name": "只有一个账户",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_9",
+            "accountName": "账户 I",
+            "roi7d": 2.7,
+            "roiGoal": 3.5,
+            "cost7d": 26000,
+            "budget": 10000,
+            "balanceDays": 8,
+            "stockDays": 7,
+            "dataLagMinutes": 10,
+            "partialAuth": false
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "moves": {
+          "count": 0
+        },
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算"
+        ]
+      }
+    },
+    {
+      "id": "br-008",
+      "name": "承接账户库存 6 天",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_9",
+            "accountName": "账户 I",
+            "roi7d": 2.7,
+            "roiGoal": 3.5,
+            "cost7d": 26000,
+            "budget": 10000,
+            "balanceDays": 8,
+            "stockDays": 7,
+            "dataLagMinutes": 10,
+            "partialAuth": false
+          },
+          {
+            "accountId": "acc_11",
+            "accountName": "账户 K",
+            "roi7d": 4.8,
+            "roiGoal": 3.5,
+            "cost7d": 8000,
+            "budget": 5000,
+            "balanceDays": 8,
+            "stockDays": 6,
+            "dataLagMinutes": 10,
+            "partialAuth": false
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "moves": {
+          "count": 0
+        },
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算"
+        ]
+      }
+    },
+    {
+      "id": "br-009",
+      "name": "承接账户 ROI 刚好等于目标",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_9",
+            "accountName": "账户 I",
+            "roi7d": 2.7,
+            "roiGoal": 3.5,
+            "cost7d": 26000,
+            "budget": 10000,
+            "balanceDays": 8,
+            "stockDays": 7,
+            "dataLagMinutes": 10,
+            "partialAuth": false
+          },
+          {
+            "accountId": "acc_12",
+            "accountName": "账户 L",
+            "roi7d": 3.5,
+            "roiGoal": 3.5,
+            "cost7d": 8000,
+            "budget": 5000,
+            "balanceDays": 8,
+            "stockDays": 7,
+            "dataLagMinutes": 10,
+            "partialAuth": false
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "moves": {
+          "count": 0
+        },
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算"
+        ]
+      }
+    },
+    {
+      "id": "br-010",
+      "name": "数据延迟 + 部分授权",
+      "input": {
+        "accounts": [
+          {
+            "accountId": "acc_9",
+            "accountName": "账户 I",
+            "roi7d": 2.7,
+            "roiGoal": 3.5,
+            "cost7d": 26000,
+            "budget": 10000,
+            "balanceDays": 8,
+            "stockDays": 7,
+            "dataLagMinutes": 60,
+            "partialAuth": true
+          },
+          {
+            "accountId": "acc_13",
+            "accountName": "账户 M",
+            "roi7d": 4.8,
+            "roiGoal": 3.5,
+            "cost7d": 8000,
+            "budget": 5000,
+            "balanceDays": 8,
+            "stockDays": 7,
+            "dataLagMinutes": 60,
+            "partialAuth": true
+          }
+        ]
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "moves": {
+          "count": 0
+        },
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算"
+        ]
+      }
+    }
+  ]
+}

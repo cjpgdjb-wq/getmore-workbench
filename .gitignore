@@ -1,0 +1,15 @@
+node_modules/
+dist/
+shots/
+.runtime/
+.vite/
+*.tsbuildinfo
+*.local
+.DS_Store
+Thumbs.db
+
+# secrets / local only
+.env
+.env.*
+*.log
+千川.docx

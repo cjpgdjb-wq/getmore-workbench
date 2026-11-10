@@ -1,0 +1,56 @@
+{
+  "id": "inventory_stop_loss",
+  "name": "库存止损",
+  "version": "0.1",
+  "description": "商品库存快断时，判断计划该暂停、降预算还是只观察。",
+  "expertIds": [
+    "analytics",
+    "ads"
+  ],
+  "toolNames": [
+    "query_plans",
+    "get_account_plans",
+    "pause_plan",
+    "apply_budget_change"
+  ],
+  "triggers": [
+    "库存快断",
+    "库存只剩 3 天",
+    "这个计划还要不要投"
+  ],
+  "steps": [
+    "先看数据健康：库存/商品数据是否可用",
+    "查计划消耗、商品库存、可售天数",
+    "库存 ≤3 天且计划仍在投放：优先暂停",
+    "库存 4–7 天：降预算 20%，不直接暂停",
+    "库存充足或数据缺失：只观察"
+  ],
+  "output": {
+    "verdict": "pause | reduce | observe",
+    "evidence": [
+      "3 条以内，必须带库存天数和消耗"
+    ],
+    "action": "pause 或 budget -20%",
+    "guardrail": [
+      "不向库存不足的商品加预算",
+      "暂停/降预算可回滚"
+    ],
+    "confidence": "low | medium | high"
+  },
+  "failure": "库存数据缺失、商品已下架、计划已暂停时，只观察，不提交动作。",
+  "businessProblem": "高消耗计划还在放量，但商品库存只剩 1–3 天；继续投会带来退款、差评和履约压力，只停计划又可能误伤正常计划。",
+  "designRationale": "先查计划消耗和商品库存，再算可售天数；库存 ≤3 天且计划仍在投放时，优先暂停或降 20%；库存充足、数据缺失或商品已下架时只观察。",
+  "businessMetrics": [
+    "库存可售天数",
+    "退款率",
+    "支付 GMV",
+    "计划消耗"
+  ],
+  "closedLoop": "技能 → ads 提交暂停/降预算 Decision → 优化师确认 → 看退款和 GMV → 回写“低库存计划”规则；库存数据缺失时只观察。",
+  "evidence": [
+    "skill 级 10/10",
+    "完整工具链 pass@3 3/3"
+  ],
+  "evalCaseFile": "docs/skills/inventory-stop-loss.cases.json",
+  "doc": "SKILL.md"
+}

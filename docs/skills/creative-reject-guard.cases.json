@@ -1,0 +1,172 @@
+{
+  "skillId": "creative_reject_guard",
+  "version": "0.1",
+  "note": "5 个素材拒审 case；不是线上 A/B。",
+  "cases": [
+    {
+      "id": "cr-001",
+      "name": "全部素材拒审，计划仍在消耗",
+      "input": {
+        "accountId": "acc_cr_1",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_cr_1",
+        "planName": "标准-便携蓝牙音箱-爆品追投",
+        "planStatus": "投放中",
+        "cost7d": 15402,
+        "creativeCount": 1,
+        "rejectedCount": 1,
+        "rejectedCreatives": [
+          {
+            "title": "便携蓝牙音箱-场景种草",
+            "reason": "背景音乐版权待确认"
+          }
+        ],
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "pause",
+        "mustInclude": [],
+        "actionAny": [
+          "pause",
+          "暂停"
+        ],
+        "mustNotInclude": [
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不重复暂停"
+        ]
+      }
+    },
+    {
+      "id": "cr-002",
+      "name": "1/2 素材拒审，仍有可投素材",
+      "input": {
+        "accountId": "acc_cr_1",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_cr_1",
+        "planName": "标准-便携蓝牙音箱-爆品追投",
+        "planStatus": "投放中",
+        "cost7d": 15402,
+        "creativeCount": 2,
+        "rejectedCount": 1,
+        "rejectedCreatives": [
+          {
+            "title": "便携蓝牙音箱-场景种草",
+            "reason": "背景音乐版权待确认"
+          }
+        ],
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不重复暂停"
+        ]
+      }
+    },
+    {
+      "id": "cr-003",
+      "name": "没有拒审素材",
+      "input": {
+        "accountId": "acc_cr_1",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_cr_1",
+        "planName": "标准-便携蓝牙音箱-爆品追投",
+        "planStatus": "投放中",
+        "cost7d": 15402,
+        "creativeCount": 2,
+        "rejectedCount": 0,
+        "rejectedCreatives": [],
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不重复暂停"
+        ]
+      }
+    },
+    {
+      "id": "cr-004",
+      "name": "全部拒审但计划已暂停",
+      "input": {
+        "accountId": "acc_cr_1",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_cr_1",
+        "planName": "标准-便携蓝牙音箱-爆品追投",
+        "planStatus": "已暂停",
+        "cost7d": 0,
+        "creativeCount": 1,
+        "rejectedCount": 1,
+        "rejectedCreatives": [
+          {
+            "title": "便携蓝牙音箱-场景种草",
+            "reason": "背景音乐版权待确认"
+          }
+        ],
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不重复暂停"
+        ]
+      }
+    },
+    {
+      "id": "cr-005",
+      "name": "素材数据缺失",
+      "input": {
+        "accountId": "acc_cr_1",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_cr_1",
+        "planName": "标准-便携蓝牙音箱-爆品追投",
+        "planStatus": "投放中",
+        "cost7d": 15402,
+        "creativeCount": 0,
+        "rejectedCount": 0,
+        "rejectedCreatives": [],
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不重复暂停"
+        ]
+      }
+    }
+  ]
+}

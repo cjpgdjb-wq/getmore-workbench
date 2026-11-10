@@ -1,0 +1,56 @@
+{
+  "id": "weekly_review",
+  "name": "周报复盘",
+  "version": "0.1",
+  "description": "把一周的账户/计划变化整理成可贴群的周报，不提交动作。",
+  "expertIds": [
+    "analytics"
+  ],
+  "toolNames": [
+    "query_accounts",
+    "query_plans",
+    "compare_periods",
+    "get_org_summary"
+  ],
+  "triggers": [
+    "写周报",
+    "本周复盘",
+    "汇报本周投放"
+  ],
+  "steps": [
+    "拉本周账户/计划汇总",
+    "对比本周 vs 上周",
+    "找 3 个关键变化",
+    "给 2 个下周动作",
+    "显式写数据缺口"
+  ],
+  "output": {
+    "verdict": "report",
+    "report": "Markdown 周报",
+    "evidence": [
+      "3 条以内，必须带数字"
+    ],
+    "guardrail": [
+      "只读，不提交动作",
+      "缺数据显式说明"
+    ],
+    "confidence": "low | medium | high"
+  },
+  "failure": "数据缺失/延迟时，在周报里写明，不推断缺失为 0。",
+  "businessProblem": "优化师每周都要写复盘：拉数、对比、找变化、写下周动作；重复劳动，而且容易漏掉数据缺口。",
+  "designRationale": "固定结构：本周总览 → 本周 vs 上周 → 3 个关键变化 → 2 个下周动作 → 数据缺口。只读，不提交 Decision；缺数据显式说明。",
+  "businessMetrics": [
+    "消耗",
+    "支付 GMV",
+    "ROI",
+    "订单成本",
+    "数据完整度"
+  ],
+  "closedLoop": "技能 → 汇总本周数据 → 输出周报 → 优化师贴群/周会 → 下周动作进入任务；不生成 Decision。",
+  "evidence": [
+    "skill 级 5/5",
+    "只读 pass@3 3/3"
+  ],
+  "evalCaseFile": "docs/skills/weekly-review.cases.json",
+  "doc": "SKILL.md"
+}

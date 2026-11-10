@@ -1,0 +1,4621 @@
+{
+  "generatedAt": 1794144561210,
+  "cases": [
+    {
+      "id": "2026-10-30-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-30",
+      "t7": "2026-11-06",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.4540232999187213,
+        "cost": 18455,
+        "orders": 239,
+        "conversions": 34.142857142857146,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.65,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.4439235628302414,
+          "revenue": 86687,
+          "cost": 25171,
+          "orders": 330,
+          "gmvDelta": 0.3599240712851406
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.3066872045466615,
+          "preRoi": 3.192813812412506,
+          "revenue": 62255,
+          "gmvDelta": -0.09013182894390692
+        },
+        "did": -0.12397312922263559,
+        "gmvRelative": 0.4500559002290475,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": 0.20607643716975854,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 observe（DiD -0.12，GMV 相对 45.0%）"
+    },
+    {
+      "id": "2026-10-30-rec_learning_phase_1739810000031676",
+      "asOf": "2026-10-30",
+      "t7": "2026-11-06",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000004339",
+        "accountName": "轻氧家居旗舰店",
+        "planIds": [
+          "1739810000031676"
+        ],
+        "planName": "标准-纯棉四件套-晚场直播冲刺"
+      },
+      "scopeLine": "标准-纯棉四件套-晚场直播冲刺 · 轻氧家居旗舰店",
+      "visible": {
+        "roi": 3.709021902427453,
+        "cost": 12647,
+        "orders": 142,
+        "conversions": 20.285714285714285,
+        "goal": 4.1,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "商品交易未授权"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000031676",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000031676",
+          "targetName": "标准-纯棉四件套-晚场直播冲刺",
+          "field": "budget",
+          "before": 5482,
+          "after": 4933.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.98,
+          "unit": "",
+          "text": "计划日预算 ¥5,482 → ¥4,934 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "低",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.4730662364434886,
+          "revenue": 38749,
+          "cost": 11157,
+          "orders": 114,
+          "gmvDelta": -0.17393621557090477
+        },
+        "control": {
+          "id": "1739810000079190",
+          "name": "标准-原味燕麦奶 12 盒-晚场直播冲刺",
+          "roi": 3.870329836214054,
+          "preRoi": 3.7746870653685676,
+          "revenue": 51278,
+          "gmvDelta": 0.049660198149512835
+        },
+        "did": -0.3315984368294509,
+        "gmvRelative": -0.2235964137204176,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": 0.5069337635565114,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-30-rec_learning_phase_1739810000110866",
+      "asOf": "2026-10-30",
+      "t7": "2026-11-06",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000014109",
+        "accountName": "星野数码旗舰店",
+        "planIds": [
+          "1739810000110866"
+        ],
+        "planName": "标准-智能运动手表-商品卡推广"
+      },
+      "scopeLine": "标准-智能运动手表-商品卡推广 · 星野数码旗舰店",
+      "visible": {
+        "roi": 2.823327305605787,
+        "cost": 16590,
+        "orders": 53,
+        "conversions": 7.571428571428571,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 17 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000110866",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000110866",
+          "targetName": "标准-智能运动手表-商品卡推广",
+          "field": "budget",
+          "before": 7369,
+          "after": 6632.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.09,
+          "unit": "",
+          "text": "计划日预算 ¥7,369 → ¥6,632 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.082511393782736,
+          "revenue": 45316,
+          "cost": 14701,
+          "orders": 48,
+          "gmvDelta": -0.03251563867717078
+        },
+        "control": {
+          "id": "1739810000112705",
+          "name": "标准-便携蓝牙音箱-爆品追投",
+          "roi": 2.858154645873944,
+          "preRoi": 2.8890979725628263,
+          "revenue": 43987,
+          "gmvDelta": -0.07580628217249707
+        },
+        "did": 0.2901274148658315,
+        "gmvRelative": 0.0432906434953263,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.007488606217263882,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-30-rec_learning_phase_1739810000158380",
+      "asOf": "2026-10-30",
+      "t7": "2026-11-06",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000019971",
+        "accountName": "时光好物旗舰店",
+        "planIds": [
+          "1739810000158380"
+        ],
+        "planName": "标准-双人餐套餐-商品卡推广"
+      },
+      "scopeLine": "标准-双人餐套餐-商品卡推广 · 时光好物旗舰店",
+      "visible": {
+        "roi": 2.286231379646387,
+        "cost": 7183,
+        "orders": 102,
+        "conversions": 14.571428571428571,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "商品交易未授权"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000158380",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000158380",
+          "targetName": "标准-双人餐套餐-商品卡推广",
+          "field": "budget",
+          "before": 3099,
+          "after": 2789.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 2.56,
+          "unit": "",
+          "text": "计划日预算 ¥3,099 → ¥2,789 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.4205397301349327,
+          "revenue": 16145,
+          "cost": 6670,
+          "orders": 100,
+          "gmvDelta": -0.01686761661186209
+        },
+        "control": {
+          "id": "1739810000160219",
+          "name": "标准-咖啡双杯券-爆品追投",
+          "roi": 2.3570772661681754,
+          "preRoi": 2.2589527943570267,
+          "revenue": 17968,
+          "gmvDelta": 0.07896475109589862
+        },
+        "did": 0.03618387867739692,
+        "gmvRelative": -0.09583236770776071,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.13946026986506732,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-30-rec_learning_phase_1739810000055433",
+      "asOf": "2026-10-30",
+      "t7": "2026-11-06",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000007270",
+        "accountName": "初见护肤专营店",
+        "planIds": [
+          "1739810000055433"
+        ],
+        "planName": "标准-轻透防晒霜-直播间引流"
+      },
+      "scopeLine": "标准-轻透防晒霜-直播间引流 · 初见护肤专营店",
+      "visible": {
+        "roi": 2.6771767130345183,
+        "cost": 9705,
+        "orders": 108,
+        "conversions": 15.428571428571429,
+        "goal": 4,
+        "sampleAdequate": false,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000055433",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000055433",
+          "targetName": "标准-轻透防晒霜-直播间引流",
+          "field": "budget",
+          "before": 2767,
+          "after": 2490.3,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 2.95,
+          "unit": "",
+          "text": "计划日预算 ¥2,767 → ¥2,490 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.6434731477851825,
+          "revenue": 26974,
+          "cost": 10204,
+          "orders": 115,
+          "gmvDelta": 0.03818027865445317
+        },
+        "control": {
+          "id": "1739810000007919",
+          "name": "标准-高腰直筒牛仔裤-直播间引流",
+          "roi": 2.790876541572736,
+          "preRoi": 3.1060752169720347,
+          "revenue": 21046,
+          "gmvDelta": -0.06657204949660711
+        },
+        "did": 0.281495110149963,
+        "gmvRelative": 0.10475232815106028,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.3065268522148177,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-29-rec_budget_cap_1723560000006293",
+      "asOf": "2026-10-29",
+      "t7": "2026-11-05",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000006293",
+        "accountName": "初见美妆旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "初见美妆旗舰店",
+      "visible": {
+        "roi": 4.5106688070415935,
+        "cost": 110884,
+        "orders": 3145,
+        "conversions": 449.2857142857143,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000006293",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000006293",
+          "targetName": "初见美妆旗舰店",
+          "field": "budget",
+          "before": 20000,
+          "after": 22000,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥20,000 → ¥22,000 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.77283649853275,
+          "revenue": 431011,
+          "cost": 90305,
+          "orders": 2711,
+          "gmvDelta": -0.13825548173488134
+        },
+        "control": {
+          "id": "1723560000002385",
+          "name": "拾光服饰旗舰店",
+          "roi": 3.9169769866686526,
+          "preRoi": 4.086775000702859,
+          "revenue": 210373,
+          "gmvDelta": -0.27638489981941694
+        },
+        "did": 0.4319657055253634,
+        "gmvRelative": 0.1381294180845356,
+        "gold": "increase",
+        "guardrail": true
+      },
+      "calibration": null,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-29-rec_budget_cap_1723560000016063",
+      "asOf": "2026-10-29",
+      "t7": "2026-11-05",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000016063",
+        "accountName": "潮玩星球旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "潮玩星球旗舰店",
+      "visible": {
+        "roi": 3.9838601912556895,
+        "cost": 47894,
+        "orders": 959,
+        "conversions": 137,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "商品交易未授权"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000016063",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000016063",
+          "targetName": "潮玩星球旗舰店",
+          "field": "budget",
+          "before": 10000,
+          "after": 11000,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥10,000 → ¥11,000 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.881571183005362,
+          "revenue": 151292,
+          "cost": 38977,
+          "orders": 762,
+          "gmvDelta": -0.20707745685340373
+        },
+        "control": {
+          "id": "1723560000018017",
+          "name": "沐野运动旗舰店",
+          "roi": 3.667446681856436,
+          "preRoi": 3.8243122784468997,
+          "revenue": 178667,
+          "gmvDelta": -0.03151544061448064
+        },
+        "did": 0.05457658834013612,
+        "gmvRelative": -0.1755620162389231,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD 0.05，GMV 相对 -17.6%）"
+    },
+    {
+      "id": "2026-10-29-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-29",
+      "t7": "2026-11-05",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.408254004446218,
+        "cost": 17543,
+        "orders": 225,
+        "conversions": 32.142857142857146,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.61,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.4867059140405554,
+          "revenue": 90616,
+          "cost": 25989,
+          "orders": 344,
+          "gmvDelta": 0.5155458179324648
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.3546489867935625,
+          "preRoi": 3.1877010225145215,
+          "revenue": 62742,
+          "gmvDelta": -0.05513305121756551
+        },
+        "did": -0.08849605468470356,
+        "gmvRelative": 0.5706788691500303,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": 0.12329408595944447,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 observe（DiD -0.09，GMV 相对 57.1%）"
+    },
+    {
+      "id": "2026-10-29-rec_learning_phase_1739810000031676",
+      "asOf": "2026-10-29",
+      "t7": "2026-11-05",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000004339",
+        "accountName": "轻氧家居旗舰店",
+        "planIds": [
+          "1739810000031676"
+        ],
+        "planName": "标准-纯棉四件套-晚场直播冲刺"
+      },
+      "scopeLine": "标准-纯棉四件套-晚场直播冲刺 · 轻氧家居旗舰店",
+      "visible": {
+        "roi": 3.6563838903170525,
+        "cost": 12837,
+        "orders": 141,
+        "conversions": 20.142857142857142,
+        "goal": 4.1,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "商品交易未授权"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000031676",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000031676",
+          "targetName": "标准-纯棉四件套-晚场直播冲刺",
+          "field": "budget",
+          "before": 5482,
+          "after": 4933.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.93,
+          "unit": "",
+          "text": "计划日预算 ¥5,482 → ¥4,934 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.6988103298191315,
+          "revenue": 38242,
+          "cost": 10339,
+          "orders": 113,
+          "gmvDelta": -0.18524831156656796
+        },
+        "control": {
+          "id": "1739810000079190",
+          "name": "标准-原味燕麦奶 12 盒-晚场直播冲刺",
+          "roi": 3.9278650378126816,
+          "preRoi": 3.7054628336151754,
+          "revenue": 47264,
+          "gmvDelta": -0.06218500734156118
+        },
+        "did": -0.1799757646954272,
+        "gmvRelative": -0.12306330422500678,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": 0.23118967018086867,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-29-rec_learning_phase_1739810000110866",
+      "asOf": "2026-10-29",
+      "t7": "2026-11-05",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000014109",
+        "accountName": "星野数码旗舰店",
+        "planIds": [
+          "1739810000110866"
+        ],
+        "planName": "标准-智能运动手表-商品卡推广"
+      },
+      "scopeLine": "标准-智能运动手表-商品卡推广 · 星野数码旗舰店",
+      "visible": {
+        "roi": 2.78577410529842,
+        "cost": 17911,
+        "orders": 54,
+        "conversions": 7.714285714285714,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 17 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000110866",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000110866",
+          "targetName": "标准-智能运动手表-商品卡推广",
+          "field": "budget",
+          "before": 7369,
+          "after": 6632.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.06,
+          "unit": "",
+          "text": "计划日预算 ¥7,369 → ¥6,632 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.074630066480806,
+          "revenue": 43011,
+          "cost": 13989,
+          "orders": 46,
+          "gmvDelta": -0.137987012987013
+        },
+        "control": {
+          "id": "1739810000112705",
+          "name": "标准-便携蓝牙音箱-爆品追投",
+          "roi": 2.8975670445120265,
+          "preRoi": 2.8188918444733715,
+          "revenue": 41922,
+          "gmvDelta": -0.15831108077177902
+        },
+        "did": 0.21018076114373097,
+        "gmvRelative": 0.02032406778476603,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.014630066480806114,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-28-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-28",
+      "t7": "2026-11-04",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.480645322411468,
+        "cost": 20021,
+        "orders": 262,
+        "conversions": 37.42857142857143,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.68,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.3960918688646045,
+          "revenue": 73342,
+          "cost": 21596,
+          "orders": 276,
+          "gmvDelta": 0.052463909537066256
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.385641500694766,
+          "preRoi": 3.0618736383442267,
+          "revenue": 73096,
+          "gmvDelta": 0.15579589836029273
+        },
+        "did": -0.4083213158974033,
+        "gmvRelative": -0.10333198882322647,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": 0.2839081311353957,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-28-rec_learning_phase_1739810000110866",
+      "asOf": "2026-10-28",
+      "t7": "2026-11-04",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000014109",
+        "accountName": "星野数码旗舰店",
+        "planIds": [
+          "1739810000110866"
+        ],
+        "planName": "标准-智能运动手表-商品卡推广"
+      },
+      "scopeLine": "标准-智能运动手表-商品卡推广 · 星野数码旗舰店",
+      "visible": {
+        "roi": 2.787272305371853,
+        "cost": 17238,
+        "orders": 54,
+        "conversions": 7.714285714285714,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 17 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000110866",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000110866",
+          "targetName": "标准-智能运动手表-商品卡推广",
+          "field": "budget",
+          "before": 7369,
+          "after": 6632.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.06,
+          "unit": "",
+          "text": "计划日预算 ¥7,369 → ¥6,632 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.1317733990147785,
+          "revenue": 45774,
+          "cost": 14616,
+          "orders": 48,
+          "gmvDelta": -0.047307844402356025
+        },
+        "control": {
+          "id": "1739810000112705",
+          "name": "标准-便携蓝牙音箱-爆品追投",
+          "roi": 2.9927320779649818,
+          "preRoi": 2.887949629802367,
+          "revenue": 45295,
+          "gmvDelta": -0.08563296122090558
+        },
+        "did": 0.23971864548031085,
+        "gmvRelative": 0.038325116818549554,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.07177339901477842,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-28-rec_learning_phase_1739810000158380",
+      "asOf": "2026-10-28",
+      "t7": "2026-11-04",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000019971",
+        "accountName": "时光好物旗舰店",
+        "planIds": [
+          "1739810000158380"
+        ],
+        "planName": "标准-双人餐套餐-商品卡推广"
+      },
+      "scopeLine": "标准-双人餐套餐-商品卡推广 · 时光好物旗舰店",
+      "visible": {
+        "roi": 2.3124251497005988,
+        "cost": 6680,
+        "orders": 95,
+        "conversions": 13.571428571428571,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "商品交易未授权"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000158380",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000158380",
+          "targetName": "标准-双人餐套餐-商品卡推广",
+          "field": "budget",
+          "before": 3099,
+          "after": 2789.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 2.58,
+          "unit": "",
+          "text": "计划日预算 ¥3,099 → ¥2,789 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.3424857408144315,
+          "revenue": 17660,
+          "cost": 7539,
+          "orders": 109,
+          "gmvDelta": 0.14326406421958948
+        },
+        "control": {
+          "id": "1739810000160219",
+          "name": "标准-咖啡双杯券-爆品追投",
+          "roi": 2.3105846298915607,
+          "preRoi": 2.313618216767707,
+          "revenue": 19603,
+          "gmvDelta": 0.2528280181504441
+        },
+        "did": 0.033094177989978935,
+        "gmvRelative": -0.10956395393085461,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.23751425918556857,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-28-rec_learning_phase_1739810000055433",
+      "asOf": "2026-10-28",
+      "t7": "2026-11-04",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000007270",
+        "accountName": "初见护肤专营店",
+        "planIds": [
+          "1739810000055433"
+        ],
+        "planName": "标准-轻透防晒霜-直播间引流"
+      },
+      "scopeLine": "标准-轻透防晒霜-直播间引流 · 初见护肤专营店",
+      "visible": {
+        "roi": 2.7392773892773894,
+        "cost": 8580,
+        "orders": 97,
+        "conversions": 13.857142857142858,
+        "goal": 4,
+        "sampleAdequate": false,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000055433",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000055433",
+          "targetName": "标准-轻透防晒霜-直播间引流",
+          "field": "budget",
+          "before": 2767,
+          "after": 2490.3,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.01,
+          "unit": "",
+          "text": "计划日预算 ¥2,767 → ¥2,490 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.6147014361300074,
+          "revenue": 27674,
+          "cost": 10584,
+          "orders": 118,
+          "gmvDelta": 0.17746670637790918
+        },
+        "control": {
+          "id": "1739810000150461",
+          "name": "标准-防风冲锋衣-直播间引流",
+          "roi": 2.9430194805194807,
+          "preRoi": 2.7378439176328087,
+          "revenue": 18129,
+          "gmvDelta": 0.1458096321577551
+        },
+        "did": -0.32975151603405406,
+        "gmvRelative": 0.03165707422015407,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.3952985638699924,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-28-rec_low_roi_high_spend_1739810000008532",
+      "asOf": "2026-10-28",
+      "t7": "2026-11-04",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000001408",
+        "accountName": "花间集轻奢线",
+        "planIds": [
+          "1739810000008532"
+        ],
+        "planName": "全域-羊毛混纺大衣-商品卡推广"
+      },
+      "scopeLine": "全域-羊毛混纺大衣-商品卡推广 · 花间集轻奢线",
+      "visible": {
+        "roi": 3.1837321825552505,
+        "cost": 7647,
+        "orders": 52,
+        "conversions": 7.428571428571429,
+        "goal": 4.2,
+        "sampleAdequate": false,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000008532",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000008532",
+          "targetName": "全域-羊毛混纺大衣-商品卡推广",
+          "field": "budget",
+          "before": 2949,
+          "after": 2654.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.38,
+          "unit": "",
+          "text": "计划日预算 ¥2,949 → ¥2,654 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.802944507361268,
+          "revenue": 19800,
+          "cost": 7064,
+          "orders": 43,
+          "gmvDelta": -0.18672471863961226
+        },
+        "control": {
+          "id": "1739810000009145",
+          "name": "全域-法式碎花连衣裙-达人相似人群",
+          "roi": 2.6730271228022353,
+          "preRoi": 3.0832337118948,
+          "revenue": 19612,
+          "gmvDelta": -0.04948383657248101
+        },
+        "did": 0.02941891389858231,
+        "gmvRelative": -0.13724088206713125,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.5770554926387317,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-27-rec_budget_cap_1723560000002385",
+      "asOf": "2026-10-27",
+      "t7": "2026-11-03",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.201862879828981,
+        "cost": 85137,
+        "orders": 1633,
+        "conversions": 233.28571428571428,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000002385",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000002385",
+          "targetName": "拾光服饰旗舰店",
+          "field": "budget",
+          "before": 15000,
+          "after": 16500,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥15,000 → ¥16,500 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.980581675049202,
+          "revenue": 182032,
+          "cost": 45730,
+          "orders": 831,
+          "gmvDelta": -0.49115264414341386
+        },
+        "control": {
+          "id": "1723560000016063",
+          "name": "潮玩星球旗舰店",
+          "roi": 3.7795503817513434,
+          "preRoi": 4.113506245662734,
+          "revenue": 160389,
+          "gmvDelta": -0.1544321548697294
+        },
+        "did": 0.11267465913161079,
+        "gmvRelative": -0.3367204892736845,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD 0.11，GMV 相对 -33.7%）"
+    },
+    {
+      "id": "2026-10-27-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-27",
+      "t7": "2026-11-03",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.3436148098207763,
+        "cost": 17799,
+        "orders": 220,
+        "conversions": 31.428571428571427,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.54,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.500765629785186,
+          "revenue": 80017,
+          "cost": 22857,
+          "orders": 303,
+          "gmvDelta": 0.3445297666056155
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.495550373578261,
+          "preRoi": 3.0717703349282295,
+          "revenue": 73452,
+          "gmvDelta": 0.1556688379118285
+        },
+        "did": -0.2666292186856216,
+        "gmvRelative": 0.188860928693787,
+        "gold": "reduce",
+        "guardrail": true
+      },
+      "calibration": 0.03923437021481391,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-27-rec_high_roi_low_spend_1739810000015838",
+      "asOf": "2026-10-27",
+      "t7": "2026-11-03",
+      "templateId": "high_roi_low_spend",
+      "templateLabel": "高 ROI 低消耗",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [
+          "1739810000015838"
+        ],
+        "planName": "标准-羊毛混纺大衣-商品卡推广"
+      },
+      "scopeLine": "标准-羊毛混纺大衣-商品卡推广 · 拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.24238683127572,
+        "cost": 21870,
+        "orders": 420,
+        "conversions": 60,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_high_roi_low_spend_1739810000015838",
+        "title": "高 ROI 低消耗：加预算 5%，还是保持？",
+        "suggestion": "预算 +5%，观察 7 天；单次不超过 10%",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000015838",
+          "targetName": "标准-羊毛混纺大衣-商品卡推广",
+          "field": "budget",
+          "before": 5260,
+          "after": 5523,
+          "unit": "元/日",
+          "deltaPct": 5,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "计划日预算 ¥5,260 → ¥5,523 元，预计带来增量 GMV"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.922395250795836,
+          "revenue": 45590,
+          "cost": 11623,
+          "orders": 210,
+          "gmvDelta": -0.5086278440629008
+        },
+        "control": {
+          "id": "1739810000017677",
+          "name": "标准-羊毛混纺大衣-爆品追投",
+          "roi": 4.0698074277854195,
+          "preRoi": 4.130809523809524,
+          "revenue": 47340,
+          "gmvDelta": -0.4542750757951284
+        },
+        "did": -0.25898948445577963,
+        "gmvRelative": -0.05435276826777247,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.26，GMV 相对 -5.4%）"
+    },
+    {
+      "id": "2026-10-27-rec_learning_phase_1739810000110866",
+      "asOf": "2026-10-27",
+      "t7": "2026-11-03",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000014109",
+        "accountName": "星野数码旗舰店",
+        "planIds": [
+          "1739810000110866"
+        ],
+        "planName": "标准-智能运动手表-商品卡推广"
+      },
+      "scopeLine": "标准-智能运动手表-商品卡推广 · 星野数码旗舰店",
+      "visible": {
+        "roi": 2.795662100456621,
+        "cost": 16644,
+        "orders": 51,
+        "conversions": 7.285714285714286,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 17 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000110866",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000110866",
+          "targetName": "标准-智能运动手表-商品卡推广",
+          "field": "budget",
+          "before": 7369,
+          "after": 6632.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.07,
+          "unit": "",
+          "text": "计划日预算 ¥7,369 → ¥6,632 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.2110405137664824,
+          "revenue": 47000,
+          "cost": 14637,
+          "orders": 50,
+          "gmvDelta": 0.01007930197072926
+        },
+        "control": {
+          "id": "1739810000112705",
+          "name": "标准-便携蓝牙音箱-爆品追投",
+          "roi": 3.1072041755373943,
+          "preRoi": 2.8269995963323913,
+          "revenue": 45244,
+          "gmvDelta": -0.07708626563041843
+        },
+        "did": 0.1351738341048585,
+        "gmvRelative": 0.08716556760114769,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.14104051376648252,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-27-rec_learning_phase_1739810000158380",
+      "asOf": "2026-10-27",
+      "t7": "2026-11-03",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000019971",
+        "accountName": "时光好物旗舰店",
+        "planIds": [
+          "1739810000158380"
+        ],
+        "planName": "标准-双人餐套餐-商品卡推广"
+      },
+      "scopeLine": "标准-双人餐套餐-商品卡推广 · 时光好物旗舰店",
+      "visible": {
+        "roi": 2.258376188249961,
+        "cost": 6417,
+        "orders": 88,
+        "conversions": 12.571428571428571,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "商品交易未授权"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000158380",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000158380",
+          "targetName": "标准-双人餐套餐-商品卡推广",
+          "field": "budget",
+          "before": 3099,
+          "after": 2789.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 2.53,
+          "unit": "",
+          "text": "计划日预算 ¥3,099 → ¥2,789 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.4389195000671955,
+          "revenue": 18148,
+          "cost": 7441,
+          "orders": 112,
+          "gmvDelta": 0.2522771184101573
+        },
+        "control": {
+          "id": "1739810000160219",
+          "name": "标准-咖啡双杯券-爆品追投",
+          "roi": 2.4442722612945524,
+          "preRoi": 2.190883190883191,
+          "revenue": 20505,
+          "gmvDelta": 0.4813610749891635
+        },
+        "did": -0.07284575859412712,
+        "gmvRelative": -0.22908395657900615,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.09108049993280432,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-26-rec_budget_cap_1723560000002385",
+      "asOf": "2026-10-26",
+      "t7": "2026-11-02",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.377294195014049,
+        "cost": 83635,
+        "orders": 1672,
+        "conversions": 238.85714285714286,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000002385",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000002385",
+          "targetName": "拾光服饰旗舰店",
+          "field": "budget",
+          "before": 15000,
+          "after": 16500,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥15,000 → ¥16,500 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.020325203252033,
+          "revenue": 192855,
+          "cost": 47970,
+          "orders": 880,
+          "gmvDelta": -0.47321050546989174
+        },
+        "control": {
+          "id": "1723560000006293",
+          "name": "初见美妆旗舰店",
+          "roi": 4.7359952972937664,
+          "preRoi": 4.623456847723646,
+          "revenue": 435058,
+          "gmvDelta": -0.12194993965472001
+        },
+        "did": -0.4695074413321372,
+        "gmvRelative": -0.35126056581517173,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.47，GMV 相对 -35.1%）"
+    },
+    {
+      "id": "2026-10-26-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-26",
+      "t7": "2026-11-02",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.282182650218862,
+        "cost": 20104,
+        "orders": 246,
+        "conversions": 35.142857142857146,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.48,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.5793092505421273,
+          "revenue": 67674,
+          "cost": 18907,
+          "orders": 256,
+          "gmvDelta": 0.02559672652875644
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.4074437263204813,
+          "preRoi": 3.197795038837384,
+          "revenue": 76446,
+          "gmvDelta": 0.19798783927787866
+        },
+        "did": 0.08747791284016815,
+        "gmvRelative": -0.17239111274912222,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": 0.09930925054212736,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-26-rec_high_roi_low_spend_1739810000015838",
+      "asOf": "2026-10-26",
+      "t7": "2026-11-02",
+      "templateId": "high_roi_low_spend",
+      "templateLabel": "高 ROI 低消耗",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [
+          "1739810000015838"
+        ],
+        "planName": "标准-羊毛混纺大衣-商品卡推广"
+      },
+      "scopeLine": "标准-羊毛混纺大衣-商品卡推广 · 拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.351826145230003,
+        "cost": 20891,
+        "orders": 417,
+        "conversions": 59.57142857142857,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_high_roi_low_spend_1739810000015838",
+        "title": "高 ROI 低消耗：加预算 5%，还是保持？",
+        "suggestion": "预算 +5%，观察 7 天；单次不超过 10%",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000015838",
+          "targetName": "标准-羊毛混纺大衣-商品卡推广",
+          "field": "budget",
+          "before": 5260,
+          "after": 5523,
+          "unit": "元/日",
+          "deltaPct": 5,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "计划日预算 ¥5,260 → ¥5,523 元，预计带来增量 GMV"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.041972125996939,
+          "revenue": 50173,
+          "cost": 12413,
+          "orders": 227,
+          "gmvDelta": -0.44812680115273773
+        },
+        "control": {
+          "id": "1739810000017677",
+          "name": "标准-羊毛混纺大衣-爆品追投",
+          "roi": 3.9845198742239782,
+          "preRoi": 4.399402006172839,
+          "revenue": 49420,
+          "gmvDelta": -0.4582684760923421
+        },
+        "did": 0.1050281127157966,
+        "gmvRelative": 0.010141674939604384,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 observe（DiD 0.11，GMV 相对 1.0%）"
+    },
+    {
+      "id": "2026-10-26-rec_high_roi_low_spend_1739810000017064",
+      "asOf": "2026-10-26",
+      "t7": "2026-11-02",
+      "templateId": "high_roi_low_spend",
+      "templateLabel": "高 ROI 低消耗",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [
+          "1739810000017064"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-晚场直播冲刺"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-晚场直播冲刺 · 拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.370416438628787,
+        "cost": 20099,
+        "orders": 398,
+        "conversions": 56.857142857142854,
+        "goal": 4,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_high_roi_low_spend_1739810000017064",
+        "title": "高 ROI 低消耗：加预算 5%，还是保持？",
+        "suggestion": "预算 +5%，观察 7 天；单次不超过 10%",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000017064",
+          "targetName": "全域-高腰直筒牛仔裤-晚场直播冲刺",
+          "field": "budget",
+          "before": 3751,
+          "after": 3938.55,
+          "unit": "元/日",
+          "deltaPct": 5,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "计划日预算 ¥3,751 → ¥3,939 元，预计带来增量 GMV"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.022511431586352,
+          "revenue": 45744,
+          "cost": 11372,
+          "orders": 211,
+          "gmvDelta": -0.47924090117371154
+        },
+        "control": {
+          "id": "1739810000000613",
+          "name": "全域-高腰直筒牛仔裤-直播间引流",
+          "roi": 3.5793092505421273,
+          "preRoi": 3.282182650218862,
+          "revenue": 67674,
+          "gmvDelta": 0.02559672652875644
+        },
+        "did": -0.6450316073657003,
+        "gmvRelative": -0.504837627702468,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.65，GMV 相对 -50.5%）"
+    },
+    {
+      "id": "2026-10-26-rec_learning_phase_1739810000110866",
+      "asOf": "2026-10-26",
+      "t7": "2026-11-02",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000014109",
+        "accountName": "星野数码旗舰店",
+        "planIds": [
+          "1739810000110866"
+        ],
+        "planName": "标准-智能运动手表-商品卡推广"
+      },
+      "scopeLine": "标准-智能运动手表-商品卡推广 · 星野数码旗舰店",
+      "visible": {
+        "roi": 2.871826171875,
+        "cost": 16384,
+        "orders": 50,
+        "conversions": 7.142857142857143,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 17 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000110866",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000110866",
+          "targetName": "标准-智能运动手表-商品卡推广",
+          "field": "budget",
+          "before": 7369,
+          "after": 6632.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.14,
+          "unit": "",
+          "text": "计划日预算 ¥7,369 → ¥6,632 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.0868670705223455,
+          "revenue": 54014,
+          "cost": 17498,
+          "orders": 59,
+          "gmvDelta": 0.14796395477344215
+        },
+        "control": {
+          "id": "1739810000112705",
+          "name": "标准-便携蓝牙音箱-爆品追投",
+          "roi": 3.017333809864189,
+          "preRoi": 2.9198247535596935,
+          "revenue": 50655,
+          "gmvDelta": -0.04990997074049064
+        },
+        "did": 0.11753184234285019,
+        "gmvRelative": 0.1978739255139328,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.05313292947765458,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-25-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-25",
+      "t7": "2026-11-01",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.3579922187517126,
+        "cost": 18249,
+        "orders": 228,
+        "conversions": 32.57142857142857,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.56,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.562761069340017,
+          "revenue": 68234,
+          "cost": 19152,
+          "orders": 257,
+          "gmvDelta": 0.1134791122715404
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.2768809849521205,
+          "preRoi": 3.2857423409269444,
+          "revenue": 71862,
+          "gmvDelta": 0.07378518916980448
+        },
+        "did": 0.21363020656312814,
+        "gmvRelative": 0.03969392310173592,
+        "gold": "increase",
+        "guardrail": true
+      },
+      "calibration": 0.002761069340016853,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 increase（DiD 0.21，GMV 相对 4.0%）"
+    },
+    {
+      "id": "2026-10-25-rec_high_roi_low_spend_1739810000015838",
+      "asOf": "2026-10-25",
+      "t7": "2026-11-01",
+      "templateId": "high_roi_low_spend",
+      "templateLabel": "高 ROI 低消耗",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [
+          "1739810000015838"
+        ],
+        "planName": "标准-羊毛混纺大衣-商品卡推广"
+      },
+      "scopeLine": "标准-羊毛混纺大衣-商品卡推广 · 拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.487901974976735,
+        "cost": 19342,
+        "orders": 396,
+        "conversions": 56.57142857142857,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_high_roi_low_spend_1739810000015838",
+        "title": "高 ROI 低消耗：加预算 5%，还是保持？",
+        "suggestion": "预算 +5%，观察 7 天；单次不超过 10%",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000015838",
+          "targetName": "标准-羊毛混纺大衣-商品卡推广",
+          "field": "budget",
+          "before": 5260,
+          "after": 5523,
+          "unit": "元/日",
+          "deltaPct": 5,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "计划日预算 ¥5,260 → ¥5,523 元，预计带来增量 GMV"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.9563810224347185,
+          "revenue": 53787,
+          "cost": 13595,
+          "orders": 242,
+          "gmvDelta": -0.38036979436668394
+        },
+        "control": {
+          "id": "1739810000017677",
+          "name": "标准-羊毛混纺大衣-爆品追投",
+          "roi": 3.8178110694964627,
+          "preRoi": 4.481309345327336,
+          "revenue": 45871,
+          "gmvDelta": -0.48845223093307755
+        },
+        "did": 0.13197732328885703,
+        "gmvRelative": 0.1080824365663936,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 observe（DiD 0.13，GMV 相对 10.8%）"
+    },
+    {
+      "id": "2026-10-25-rec_learning_phase_1739810000110866",
+      "asOf": "2026-10-25",
+      "t7": "2026-11-01",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000014109",
+        "accountName": "星野数码旗舰店",
+        "planIds": [
+          "1739810000110866"
+        ],
+        "planName": "标准-智能运动手表-商品卡推广"
+      },
+      "scopeLine": "标准-智能运动手表-商品卡推广 · 星野数码旗舰店",
+      "visible": {
+        "roi": 2.910621539866446,
+        "cost": 17521,
+        "orders": 56,
+        "conversions": 8,
+        "goal": 4.5,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 17 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000110866",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000110866",
+          "targetName": "标准-智能运动手表-商品卡推广",
+          "field": "budget",
+          "before": 7369,
+          "after": 6632.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.18,
+          "unit": "",
+          "text": "计划日预算 ¥7,369 → ¥6,632 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.997944377267231,
+          "revenue": 49586,
+          "cost": 16540,
+          "orders": 53,
+          "gmvDelta": -0.027668294213385125
+        },
+        "control": {
+          "id": "1739810000112705",
+          "name": "标准-便携蓝牙音箱-爆品追投",
+          "roi": 2.9225601563454258,
+          "preRoi": 2.995799844438683,
+          "revenue": 47854,
+          "gmvDelta": -0.1717035344618687
+        },
+        "did": 0.16056252549404215,
+        "gmvRelative": 0.14403524024848358,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.18205562273276898,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-25-rec_learning_phase_1739810000055433",
+      "asOf": "2026-10-25",
+      "t7": "2026-11-01",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000007270",
+        "accountName": "初见护肤专营店",
+        "planIds": [
+          "1739810000055433"
+        ],
+        "planName": "标准-轻透防晒霜-直播间引流"
+      },
+      "scopeLine": "标准-轻透防晒霜-直播间引流 · 初见护肤专营店",
+      "visible": {
+        "roi": 2.716840171463564,
+        "cost": 8165,
+        "orders": 95,
+        "conversions": 13.571428571428571,
+        "goal": 4,
+        "sampleAdequate": false,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000055433",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000055433",
+          "targetName": "标准-轻透防晒霜-直播间引流",
+          "field": "budget",
+          "before": 2767,
+          "after": 2490.3,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 2.99,
+          "unit": "",
+          "text": "计划日预算 ¥2,767 → ¥2,490 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.613394367598766,
+          "revenue": 26262,
+          "cost": 10049,
+          "orders": 108,
+          "gmvDelta": 0.18387954740116297
+        },
+        "control": {
+          "id": "1739810000007919",
+          "name": "标准-高腰直筒牛仔裤-直播间引流",
+          "roi": 3.0347012239020876,
+          "preRoi": 2.9333418465074703,
+          "revenue": 21076,
+          "gmvDelta": -0.08249532018632189
+        },
+        "did": -0.20480518125941538,
+        "gmvRelative": 0.26637486758748485,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.3766056324012341,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-25-rec_low_roi_high_spend_1739810000166912",
+      "asOf": "2026-10-25",
+      "t7": "2026-11-01",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000020948",
+        "accountName": "拾光会员商店",
+        "planIds": [
+          "1739810000166912"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-晚场直播冲刺"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-晚场直播冲刺 · 拾光会员商店",
+      "visible": {
+        "roi": 3.3445058742225293,
+        "cost": 5788,
+        "orders": 64,
+        "conversions": 9.142857142857142,
+        "goal": 4.7,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 20 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000166912",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000166912",
+          "targetName": "全域-高腰直筒牛仔裤-晚场直播冲刺",
+          "field": "budget",
+          "before": 2026,
+          "after": 1823.4,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.54,
+          "unit": "",
+          "text": "计划日预算 ¥2,026 → ¥1,823 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.4394827237825822,
+          "revenue": 17022,
+          "cost": 4949,
+          "orders": 58,
+          "gmvDelta": -0.12067362330819298
+        },
+        "control": {
+          "id": "1739810000159606",
+          "name": "全域-双人餐套餐-晚场直播冲刺",
+          "roi": 2.2942884801548886,
+          "preRoi": 2.194616610589694,
+          "revenue": 16590,
+          "gmvDelta": 0.33865892035826684
+        },
+        "did": -0.004695020005141881,
+        "gmvRelative": -0.4593325436664598,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.1005172762174178,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-24-rec_budget_cap_1723560000006293",
+      "asOf": "2026-10-24",
+      "t7": "2026-10-31",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000006293",
+        "accountName": "初见美妆旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "初见美妆旗舰店",
+      "visible": {
+        "roi": 4.854885892518114,
+        "cost": 103236,
+        "orders": 3153,
+        "conversions": 450.42857142857144,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000006293",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000006293",
+          "targetName": "初见美妆旗舰店",
+          "field": "budget",
+          "before": 20000,
+          "after": 22000,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥20,000 → ¥22,000 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.532838060655465,
+          "revenue": 489338,
+          "cost": 107954,
+          "orders": 3077,
+          "gmvDelta": -0.023665250728752474
+        },
+        "control": {
+          "id": "1723560000009224",
+          "name": "简味食品旗舰店",
+          "roi": 5.459363551798982,
+          "preRoi": 5.295939786841709,
+          "revenue": 475385,
+          "gmvDelta": 0.04102020571418552
+        },
+        "did": -0.4854715968199228,
+        "gmvRelative": -0.064685456442938,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.49，GMV 相对 -6.5%）"
+    },
+    {
+      "id": "2026-10-24-rec_low_roi_high_spend_1739810000142542",
+      "asOf": "2026-10-24",
+      "t7": "2026-10-31",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [
+          "1739810000142542"
+        ],
+        "planName": "标准-轻量徒步鞋-短视频带货"
+      },
+      "scopeLine": "标准-轻量徒步鞋-短视频带货 · 沐野运动旗舰店",
+      "visible": {
+        "roi": 3.8011275924558694,
+        "cost": 29798,
+        "orders": 310,
+        "conversions": 44.285714285714285,
+        "goal": 4.3,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000142542",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000142542",
+          "targetName": "标准-轻量徒步鞋-短视频带货",
+          "field": "budget",
+          "before": 5051,
+          "after": 4545.9,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 4,
+          "unit": "",
+          "text": "计划日预算 ¥5,051 → ¥4,546 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.73154816376875,
+          "revenue": 93785,
+          "cost": 25133,
+          "orders": 266,
+          "gmvDelta": -0.1719933607613935
+        },
+        "control": {
+          "id": "1739810000000000",
+          "name": "标准-法式碎花连衣裙-短视频带货",
+          "roi": 3.503344108795006,
+          "preRoi": 3.2513094330027967,
+          "revenue": 62857,
+          "gmvDelta": -0.016891627696013267
+        },
+        "did": -0.3216141044793286,
+        "gmvRelative": -0.15510173306538022,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": 0.2684518362312498,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-24-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-24",
+      "t7": "2026-10-31",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.3659227954440034,
+        "cost": 19403,
+        "orders": 242,
+        "conversions": 34.57142857142857,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.57,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.4250329525483303,
+          "revenue": 62363,
+          "cost": 18208,
+          "orders": 236,
+          "gmvDelta": -0.04510863740066451
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.306446388079041,
+          "preRoi": 3.2899937708817033,
+          "revenue": 71449,
+          "gmvDelta": 0.22980137009879864
+        },
+        "did": 0.04265753990698906,
+        "gmvRelative": -0.27491000749946315,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": 0.14496704745166955,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-24-rec_learning_phase_1739810000055433",
+      "asOf": "2026-10-24",
+      "t7": "2026-10-31",
+      "templateId": "learning_phase",
+      "templateLabel": "学习期",
+      "scope": {
+        "accountId": "1723560000007270",
+        "accountName": "初见护肤专营店",
+        "planIds": [
+          "1739810000055433"
+        ],
+        "planName": "标准-轻透防晒霜-直播间引流"
+      },
+      "scopeLine": "标准-轻透防晒霜-直播间引流 · 初见护肤专营店",
+      "visible": {
+        "roi": 2.72831541218638,
+        "cost": 6975,
+        "orders": 81,
+        "conversions": 11.571428571428571,
+        "goal": 4,
+        "sampleAdequate": false,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_learning_phase_1739810000055433",
+        "title": "学习期计划：先降预算，还是直接停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000055433",
+          "targetName": "标准-轻透防晒霜-直播间引流",
+          "field": "budget",
+          "before": 2767,
+          "after": 2490.3,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3,
+          "unit": "",
+          "text": "计划日预算 ¥2,767 → ¥2,490 元，观察 7 天 ROI 与 GMV"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.5637665087206374,
+          "revenue": 25430,
+          "cost": 9919,
+          "orders": 105,
+          "gmvDelta": 0.33631108775617435
+        },
+        "control": {
+          "id": "1739810000007919",
+          "name": "标准-高腰直筒牛仔裤-直播间引流",
+          "roi": 3.083389284275547,
+          "preRoi": 2.975396322130628,
+          "revenue": 22962,
+          "gmvDelta": -0.021269340607817266
+        },
+        "did": -0.27254186561066174,
+        "gmvRelative": 0.3575804283639916,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.4362334912793626,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-24-rec_low_roi_high_spend_1739810000166912",
+      "asOf": "2026-10-24",
+      "t7": "2026-10-31",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000020948",
+        "accountName": "拾光会员商店",
+        "planIds": [
+          "1739810000166912"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-晚场直播冲刺"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-晚场直播冲刺 · 拾光会员商店",
+      "visible": {
+        "roi": 3.2538602025568655,
+        "cost": 6023,
+        "orders": 66,
+        "conversions": 9.428571428571429,
+        "goal": 4.7,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 20 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000166912",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000166912",
+          "targetName": "全域-高腰直筒牛仔裤-晚场直播冲刺",
+          "field": "budget",
+          "before": 2026,
+          "after": 1823.4,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.45,
+          "unit": "",
+          "text": "计划日预算 ¥2,026 → ¥1,823 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.5133723359799416,
+          "revenue": 16815,
+          "cost": 4786,
+          "orders": 57,
+          "gmvDelta": -0.14200428615164817
+        },
+        "control": {
+          "id": "1739810000159606",
+          "name": "全域-双人餐套餐-晚场直播冲刺",
+          "roi": 2.2827613104524183,
+          "preRoi": 2.1397435897435897,
+          "revenue": 17559,
+          "gmvDelta": 0.5029530086450398
+        },
+        "did": 0.11649441271424754,
+        "gmvRelative": -0.644957294796688,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.06337233597994141,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-23-rec_budget_cap_1723560000006293",
+      "asOf": "2026-10-23",
+      "t7": "2026-10-30",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000006293",
+        "accountName": "初见美妆旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "初见美妆旗舰店",
+      "visible": {
+        "roi": 4.873567877998166,
+        "cost": 103605,
+        "orders": 3177,
+        "conversions": 453.85714285714283,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000006293",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000006293",
+          "targetName": "初见美妆旗舰店",
+          "field": "budget",
+          "before": 20000,
+          "after": 22000,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥20,000 → ¥22,000 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.406139555539108,
+          "revenue": 476242,
+          "cost": 108086,
+          "orders": 2994,
+          "gmvDelta": -0.056808324388128106
+        },
+        "control": {
+          "id": "1723560000002385",
+          "name": "拾光服饰旗舰店",
+          "roi": 4.12912207290577,
+          "preRoi": 4.5300385891273445,
+          "revenue": 256563,
+          "gmvDelta": -0.2331468230483671
+        },
+        "did": -0.0665118062374841,
+        "gmvRelative": 0.17633849866023898,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 observe（DiD -0.07，GMV 相对 17.6%）"
+    },
+    {
+      "id": "2026-10-23-rec_low_roi_high_spend_1739810000142542",
+      "asOf": "2026-10-23",
+      "t7": "2026-10-30",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [
+          "1739810000142542"
+        ],
+        "planName": "标准-轻量徒步鞋-短视频带货"
+      },
+      "scopeLine": "标准-轻量徒步鞋-短视频带货 · 沐野运动旗舰店",
+      "visible": {
+        "roi": 3.843899540237075,
+        "cost": 31973,
+        "orders": 337,
+        "conversions": 48.142857142857146,
+        "goal": 4.3,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000142542",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000142542",
+          "targetName": "标准-轻量徒步鞋-短视频带货",
+          "field": "budget",
+          "before": 5051,
+          "after": 4545.9,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 4.04,
+          "unit": "",
+          "text": "计划日预算 ¥5,051 → ¥4,546 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.708092975907703,
+          "revenue": 87422,
+          "cost": 23576,
+          "orders": 247,
+          "gmvDelta": -0.28867950626927363
+        },
+        "control": {
+          "id": "1739810000000000",
+          "name": "标准-法式碎花连衣裙-短视频带货",
+          "roi": 3.5052958043185676,
+          "preRoi": 3.2696676680435597,
+          "revenue": 59902,
+          "gmvDelta": -0.14004335529810352
+        },
+        "did": -0.3714347006043801,
+        "gmvRelative": -0.1486361509711701,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": 0.3319070240922972,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-23-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-23",
+      "t7": "2026-10-30",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.3438752783964367,
+        "cost": 20205,
+        "orders": 252,
+        "conversions": 36,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.54,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.4540232999187213,
+          "revenue": 63744,
+          "cost": 18455,
+          "orders": 239,
+          "gmvDelta": -0.056525021091425764
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.192813812412506,
+          "preRoi": 3.3177728738754033,
+          "revenue": 68422,
+          "gmvDelta": 0.16691395923936225
+        },
+        "did": 0.23510708298518201,
+        "gmvRelative": -0.22343898033078802,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": 0.08597670008127878,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-23-rec_low_roi_high_spend_1739810000166912",
+      "asOf": "2026-10-23",
+      "t7": "2026-10-30",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000020948",
+        "accountName": "拾光会员商店",
+        "planIds": [
+          "1739810000166912"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-晚场直播冲刺"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-晚场直播冲刺 · 拾光会员商店",
+      "visible": {
+        "roi": 3.131960850489369,
+        "cost": 5926,
+        "orders": 63,
+        "conversions": 9,
+        "goal": 4.7,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 20 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000166912",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000166912",
+          "targetName": "全域-高腰直筒牛仔裤-晚场直播冲刺",
+          "field": "budget",
+          "before": 2026,
+          "after": 1823.4,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.33,
+          "unit": "",
+          "text": "计划日预算 ¥2,026 → ¥1,823 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.5262381454162277,
+          "revenue": 16732,
+          "cost": 4745,
+          "orders": 56,
+          "gmvDelta": -0.0984913793103448
+        },
+        "control": {
+          "id": "1739810000159606",
+          "name": "全域-双人餐套餐-晚场直播冲刺",
+          "roi": 2.1921287062890573,
+          "preRoi": 2.1922246220302375,
+          "revenue": 16487,
+          "gmvDelta": 0.35361247947454855
+        },
+        "did": 0.3943732106680389,
+        "gmvRelative": -0.45210385878489334,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.19623814541622764,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-20-rec_budget_cap_1723560000002385",
+      "asOf": "2026-10-20",
+      "t7": "2026-10-27",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.667866144141256,
+        "cost": 68641,
+        "orders": 1463,
+        "conversions": 209,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000002385",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000002385",
+          "targetName": "拾光服饰旗舰店",
+          "field": "budget",
+          "before": 15000,
+          "after": 16500,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥15,000 → ¥16,500 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.201862879828981,
+          "revenue": 357734,
+          "cost": 85137,
+          "orders": 1633,
+          "gmvDelta": 0.11649870321185252
+        },
+        "control": {
+          "id": "1723560000006293",
+          "name": "初见美妆旗舰店",
+          "roi": 4.662952962661983,
+          "preRoi": 4.5528199645735725,
+          "revenue": 533633,
+          "gmvDelta": 0.22849348496707944
+        },
+        "did": -0.5761362624006852,
+        "gmvRelative": -0.11199478175522692,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.58，GMV 相对 -11.2%）"
+    },
+    {
+      "id": "2026-10-20-rec_high_roi_low_spend_1739810000017677",
+      "asOf": "2026-10-20",
+      "t7": "2026-10-27",
+      "templateId": "high_roi_low_spend",
+      "templateLabel": "高 ROI 低消耗",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [
+          "1739810000017677"
+        ],
+        "planName": "标准-羊毛混纺大衣-爆品追投"
+      },
+      "scopeLine": "标准-羊毛混纺大衣-爆品追投 · 拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.723285679670463,
+        "cost": 16508,
+        "orders": 353,
+        "conversions": 50.42857142857143,
+        "goal": 4.1,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_high_roi_low_spend_1739810000017677",
+        "title": "高 ROI 低消耗：加预算 5%，还是保持？",
+        "suggestion": "预算 +5%，观察 7 天；单次不超过 10%",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000017677",
+          "targetName": "标准-羊毛混纺大衣-爆品追投",
+          "field": "budget",
+          "before": 8927,
+          "after": 9373.35,
+          "unit": "元/日",
+          "deltaPct": 5,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "计划日预算 ¥8,927 → ¥9,373 元，预计带来增量 GMV"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.130809523809524,
+          "revenue": 86747,
+          "cost": 21000,
+          "orders": 402,
+          "gmvDelta": 0.11254039911763192
+        },
+        "control": {
+          "id": "1739810000015838",
+          "name": "标准-羊毛混纺大衣-商品卡推广",
+          "roi": 4.24238683127572,
+          "preRoi": 4.629596572652624,
+          "revenue": 92781,
+          "gmvDelta": 0.1924812030075187
+        },
+        "did": -0.2052664144840346,
+        "gmvRelative": -0.07994080388988678,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.21，GMV 相对 -8.0%）"
+    },
+    {
+      "id": "2026-10-20-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-20",
+      "t7": "2026-10-27",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.3188447514872386,
+        "cost": 20844,
+        "orders": 257,
+        "conversions": 36.714285714285715,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.52,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.3436148098207763,
+          "revenue": 59513,
+          "cost": 17799,
+          "orders": 220,
+          "gmvDelta": -0.1397120471826303
+        },
+        "control": {
+          "id": "1739810000112092",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 2.8557661827173018,
+          "preRoi": 3.1953527941723827,
+          "revenue": 45044,
+          "gmvDelta": -0.2504534487062151
+        },
+        "did": 0.3643566697886187,
+        "gmvRelative": 0.1107414015235848,
+        "gold": "increase",
+        "guardrail": true
+      },
+      "calibration": 0.17638519017922372,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 increase（DiD 0.36，GMV 相对 11.1%）"
+    },
+    {
+      "id": "2026-10-20-rec_low_roi_high_spend_1739810000142542",
+      "asOf": "2026-10-20",
+      "t7": "2026-10-27",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [
+          "1739810000142542"
+        ],
+        "planName": "标准-轻量徒步鞋-短视频带货"
+      },
+      "scopeLine": "标准-轻量徒步鞋-短视频带货 · 沐野运动旗舰店",
+      "visible": {
+        "roi": 3.9305944805301856,
+        "cost": 30329,
+        "orders": 332,
+        "conversions": 47.42857142857143,
+        "goal": 4.3,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000142542",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000142542",
+          "targetName": "标准-轻量徒步鞋-短视频带货",
+          "field": "budget",
+          "before": 5051,
+          "after": 4545.9,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 4.13,
+          "unit": "",
+          "text": "计划日预算 ¥5,051 → ¥4,546 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.599786552828175,
+          "revenue": 101190,
+          "cost": 28110,
+          "orders": 283,
+          "gmvDelta": -0.15116893575257317
+        },
+        "control": {
+          "id": "1739810000000000",
+          "name": "标准-法式碎花连衣裙-短视频带货",
+          "roi": 3.2215739969043935,
+          "preRoi": 3.3036702528002833,
+          "revenue": 54116,
+          "gmvDelta": -0.2747788796569285
+        },
+        "did": -0.24871167180612064,
+        "gmvRelative": 0.12360994390435531,
+        "gold": "reduce",
+        "guardrail": true
+      },
+      "calibration": 0.5302134471718247,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-20-rec_high_roi_low_spend_1739810000015838",
+      "asOf": "2026-10-20",
+      "t7": "2026-10-27",
+      "templateId": "high_roi_low_spend",
+      "templateLabel": "高 ROI 低消耗",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [
+          "1739810000015838"
+        ],
+        "planName": "标准-羊毛混纺大衣-商品卡推广"
+      },
+      "scopeLine": "标准-羊毛混纺大衣-商品卡推广 · 拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.629596572652624,
+        "cost": 16806,
+        "orders": 358,
+        "conversions": 51.142857142857146,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_high_roi_low_spend_1739810000015838",
+        "title": "高 ROI 低消耗：加预算 5%，还是保持？",
+        "suggestion": "预算 +5%，观察 7 天；单次不超过 10%",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000015838",
+          "targetName": "标准-羊毛混纺大衣-商品卡推广",
+          "field": "budget",
+          "before": 5260,
+          "after": 5523,
+          "unit": "元/日",
+          "deltaPct": 5,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "计划日预算 ¥5,260 → ¥5,523 元，预计带来增量 GMV"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.24238683127572,
+          "revenue": 92781,
+          "cost": 21870,
+          "orders": 420,
+          "gmvDelta": 0.1924812030075187
+        },
+        "control": {
+          "id": "1739810000017677",
+          "name": "标准-羊毛混纺大衣-爆品追投",
+          "roi": 4.130809523809524,
+          "preRoi": 4.723285679670463,
+          "revenue": 86747,
+          "gmvDelta": 0.11254039911763192
+        },
+        "did": 0.2052664144840346,
+        "gmvRelative": 0.07994080388988678,
+        "gold": "increase",
+        "guardrail": true
+      },
+      "calibration": null,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-17-rec_budget_cap_1723560000018017",
+      "asOf": "2026-10-17",
+      "t7": "2026-10-24",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "沐野运动旗舰店",
+      "visible": {
+        "roi": 3.663972888425443,
+        "cost": 57540,
+        "orders": 588,
+        "conversions": 84,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000018017",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000018017",
+          "targetName": "沐野运动旗舰店",
+          "field": "budget",
+          "before": 14000,
+          "after": 15400,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥14,000 → ¥15,400 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.7510598524551857,
+          "revenue": 224741,
+          "cost": 59914,
+          "orders": 625,
+          "gmvDelta": 0.06600735206925168
+        },
+        "control": {
+          "id": "1723560000002385",
+          "name": "拾光服饰旗舰店",
+          "roi": 4.478595460480064,
+          "preRoi": 4.225317718275464,
+          "revenue": 356747,
+          "gmvDelta": 0.45197356103834796
+        },
+        "did": -0.16619077817485728,
+        "gmvRelative": -0.3859662089690963,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.17，GMV 相对 -38.6%）"
+    },
+    {
+      "id": "2026-10-17-rec_low_roi_high_spend_1739810000142542",
+      "asOf": "2026-10-17",
+      "t7": "2026-10-24",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [
+          "1739810000142542"
+        ],
+        "planName": "标准-轻量徒步鞋-短视频带货"
+      },
+      "scopeLine": "标准-轻量徒步鞋-短视频带货 · 沐野运动旗舰店",
+      "visible": {
+        "roi": 3.613355199828871,
+        "cost": 28049,
+        "orders": 286,
+        "conversions": 40.857142857142854,
+        "goal": 4.3,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000142542",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000142542",
+          "targetName": "标准-轻量徒步鞋-短视频带货",
+          "field": "budget",
+          "before": 5051,
+          "after": 4545.9,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.81,
+          "unit": "",
+          "text": "计划日预算 ¥5,051 → ¥4,546 元，先收缩低效消耗"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.8011275924558694,
+          "revenue": 113266,
+          "cost": 29798,
+          "orders": 310,
+          "gmvDelta": 0.1175617408807017
+        },
+        "control": {
+          "id": "1739810000118785",
+          "name": "标准-联名盲盒手办-达人相似人群",
+          "roi": 3.261031248265527,
+          "preRoi": 3.3988661477851445,
+          "revenue": 58754,
+          "gmvDelta": -0.16948433789437978
+        },
+        "did": 0.325607292146616,
+        "gmvRelative": 0.2870460787750815,
+        "gold": "increase",
+        "guardrail": true
+      },
+      "calibration": 0.008872407544130656,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 increase（DiD 0.33，GMV 相对 28.7%）"
+    },
+    {
+      "id": "2026-10-17-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-17",
+      "t7": "2026-10-24",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.4112289724633023,
+        "cost": 18666,
+        "orders": 234,
+        "conversions": 33.42857142857143,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.61,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.3659227954440034,
+          "revenue": 65309,
+          "cost": 19403,
+          "orders": 242,
+          "gmvDelta": 0.02567767063479609
+        },
+        "control": {
+          "id": "1739810000119398",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.2899937708817033,
+          "preRoi": 3.372478155450844,
+          "revenue": 58098,
+          "gmvDelta": -0.2118992390021568
+        },
+        "did": 0.03717820754984169,
+        "gmvRelative": 0.23757690963695288,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": 0.24407720455599646,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 observe（DiD 0.04，GMV 相对 23.8%）"
+    },
+    {
+      "id": "2026-10-17-rec_high_roi_low_spend_1739810000015838",
+      "asOf": "2026-10-17",
+      "t7": "2026-10-24",
+      "templateId": "high_roi_low_spend",
+      "templateLabel": "高 ROI 低消耗",
+      "scope": {
+        "accountId": "1723560000002385",
+        "accountName": "拾光服饰旗舰店",
+        "planIds": [
+          "1739810000015838"
+        ],
+        "planName": "标准-羊毛混纺大衣-商品卡推广"
+      },
+      "scopeLine": "标准-羊毛混纺大衣-商品卡推广 · 拾光服饰旗舰店",
+      "visible": {
+        "roi": 4.1547659258258465,
+        "cost": 14803,
+        "orders": 286,
+        "conversions": 40.857142857142854,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_high_roi_low_spend_1739810000015838",
+        "title": "高 ROI 低消耗：加预算 5%，还是保持？",
+        "suggestion": "预算 +5%，观察 7 天；单次不超过 10%",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000015838",
+          "targetName": "标准-羊毛混纺大衣-商品卡推广",
+          "field": "budget",
+          "before": 5260,
+          "after": 5523,
+          "unit": "元/日",
+          "deltaPct": 5,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "计划日预算 ¥5,260 → ¥5,523 元，预计带来增量 GMV"
+        },
+        "impact": "中",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.453339432753888,
+          "revenue": 87615,
+          "cost": 19674,
+          "orders": 402,
+          "gmvDelta": 0.4245646553826643
+        },
+        "control": {
+          "id": "1739810000017677",
+          "name": "标准-羊毛混纺大衣-爆品追投",
+          "roi": 4.521798080934501,
+          "preRoi": 4.273453517143867,
+          "revenue": 86710,
+          "gmvDelta": 0.4344560614081525
+        },
+        "did": 0.05022894313740789,
+        "gmvRelative": -0.009891406025488214,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 observe（DiD 0.05，GMV 相对 -1.0%）"
+    },
+    {
+      "id": "2026-10-14-rec_low_roi_high_spend_1739810000142542",
+      "asOf": "2026-10-14",
+      "t7": "2026-10-21",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [
+          "1739810000142542"
+        ],
+        "planName": "标准-轻量徒步鞋-短视频带货"
+      },
+      "scopeLine": "标准-轻量徒步鞋-短视频带货 · 沐野运动旗舰店",
+      "visible": {
+        "roi": 3.3246004715745348,
+        "cost": 26719,
+        "orders": 252,
+        "conversions": 36,
+        "goal": 4.3,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000142542",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000142542",
+          "targetName": "标准-轻量徒步鞋-短视频带货",
+          "field": "budget",
+          "before": 5051,
+          "after": 4545.9,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.52,
+          "unit": "",
+          "text": "计划日预算 ¥5,051 → ¥4,546 元，先收缩低效消耗"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.9453169284118568,
+          "revenue": 118324,
+          "cost": 29991,
+          "orders": 327,
+          "gmvDelta": 0.3320274681976809
+        },
+        "control": {
+          "id": "1739810000118785",
+          "name": "标准-联名盲盒手办-达人相似人群",
+          "roi": 3.5239190174415342,
+          "preRoi": 3.2358536477458744,
+          "revenue": 62835,
+          "gmvDelta": -0.14089417555373251
+        },
+        "did": 0.33265108714166214,
+        "gmvRelative": 0.47292164375141343,
+        "gold": "increase",
+        "guardrail": true
+      },
+      "calibration": 0.42531692841185675,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 increase（DiD 0.33，GMV 相对 47.3%）"
+    },
+    {
+      "id": "2026-10-14-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-14",
+      "t7": "2026-10-21",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.5949954160599686,
+        "cost": 18543,
+        "orders": 249,
+        "conversions": 35.57142857142857,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.79,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.2716887338081353,
+          "revenue": 68447,
+          "cost": 20921,
+          "orders": 254,
+          "gmvDelta": 0.026776874381206683
+        },
+        "control": {
+          "id": "1739810000112092",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.1314920119144327,
+          "preRoi": 3.0539097138250706,
+          "revenue": 57823,
+          "gmvDelta": -0.046045468043686255
+        },
+        "did": -0.40088898034119547,
+        "gmvRelative": 0.07282234242489294,
+        "gold": "reduce",
+        "guardrail": true
+      },
+      "calibration": 0.5183112661918647,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-11-rec_budget_cap_1723560000009224",
+      "asOf": "2026-10-11",
+      "t7": "2026-10-18",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000009224",
+        "accountName": "简味食品旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "简味食品旗舰店",
+      "visible": {
+        "roi": 5.06800985944057,
+        "cost": 128202,
+        "orders": 7301,
+        "conversions": 1043,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000009224",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000009224",
+          "targetName": "简味食品旗舰店",
+          "field": "budget",
+          "before": 22000,
+          "after": 24200,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥22,000 → ¥24,200 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 4.991758502005116,
+          "revenue": 474252,
+          "cost": 95007,
+          "orders": 5329,
+          "gmvDelta": -0.2700772168088541
+        },
+        "control": {
+          "id": "1723560000006293",
+          "name": "初见美妆旗舰店",
+          "roi": 4.67337445748272,
+          "preRoi": 4.683294719567526,
+          "revenue": 465169,
+          "gmvDelta": 0.19853702778049742
+        },
+        "did": -0.06633109535064907,
+        "gmvRelative": -0.4686142445893515,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.07，GMV 相对 -46.9%）"
+    },
+    {
+      "id": "2026-10-11-rec_low_roi_high_spend_1739810000142542",
+      "asOf": "2026-10-11",
+      "t7": "2026-10-18",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [
+          "1739810000142542"
+        ],
+        "planName": "标准-轻量徒步鞋-短视频带货"
+      },
+      "scopeLine": "标准-轻量徒步鞋-短视频带货 · 沐野运动旗舰店",
+      "visible": {
+        "roi": 3.4220197712735025,
+        "cost": 25795,
+        "orders": 247,
+        "conversions": 35.285714285714285,
+        "goal": 4.3,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000142542",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000142542",
+          "targetName": "标准-轻量徒步鞋-短视频带货",
+          "field": "budget",
+          "before": 5051,
+          "after": 4545.9,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.62,
+          "unit": "",
+          "text": "计划日预算 ¥5,051 → ¥4,546 元，先收缩低效消耗"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.7209017306692416,
+          "revenue": 100189,
+          "cost": 26926,
+          "orders": 278,
+          "gmvDelta": 0.13501603017978714
+        },
+        "control": {
+          "id": "1739810000118785",
+          "name": "标准-联名盲盒手办-达人相似人群",
+          "roi": 3.515379113018598,
+          "preRoi": 3.307043424059838,
+          "revenue": 58974,
+          "gmvDelta": -0.2589716525934861
+        },
+        "did": 0.09054627043697927,
+        "gmvRelative": 0.39398768277327323,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": 0.10090173066924146,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 observe（DiD 0.09，GMV 相对 39.4%）"
+    },
+    {
+      "id": "2026-10-11-rec_low_roi_high_spend_1739810000000613",
+      "asOf": "2026-10-11",
+      "t7": "2026-10-18",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000000431",
+        "accountName": "花间集旗舰店",
+        "planIds": [
+          "1739810000000613"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-直播间引流"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-直播间引流 · 花间集旗舰店",
+      "visible": {
+        "roi": 3.5476444038744357,
+        "cost": 19719,
+        "orders": 263,
+        "conversions": 37.57142857142857,
+        "goal": 3.9,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "账户仅部分授权：商品交易未授权",
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000000613",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000000613",
+          "targetName": "全域-高腰直筒牛仔裤-直播间引流",
+          "field": "budget",
+          "before": 6792,
+          "after": 6112.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.75,
+          "unit": "",
+          "text": "计划日预算 ¥6,792 → ¥6,113 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.349443725743855,
+          "revenue": 64728,
+          "cost": 19325,
+          "orders": 238,
+          "gmvDelta": -0.07473268911887476
+        },
+        "control": {
+          "id": "1739810000112092",
+          "name": "全域-无线降噪耳机-晚场直播冲刺",
+          "roi": 3.0774887192914044,
+          "preRoi": 3.0905650175723167,
+          "revenue": 55244,
+          "gmvDelta": -0.19459995334732916
+        },
+        "did": -0.18512437984966823,
+        "gmvRelative": 0.1198672642284544,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": 0.4005562742561448,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 observe（DiD -0.19，GMV 相对 12.0%）"
+    },
+    {
+      "id": "2026-10-11-rec_low_roi_high_spend_1739810000166912",
+      "asOf": "2026-10-11",
+      "t7": "2026-10-18",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000020948",
+        "accountName": "拾光会员商店",
+        "planIds": [
+          "1739810000166912"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-晚场直播冲刺"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-晚场直播冲刺 · 拾光会员商店",
+      "visible": {
+        "roi": 3.542715414293588,
+        "cost": 5443,
+        "orders": 61,
+        "conversions": 8.714285714285714,
+        "goal": 4.7,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 20 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000166912",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000166912",
+          "targetName": "全域-高腰直筒牛仔裤-晚场直播冲刺",
+          "field": "budget",
+          "before": 2026,
+          "after": 1823.4,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.74,
+          "unit": "",
+          "text": "计划日预算 ¥2,026 → ¥1,823 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.911663807890223,
+          "revenue": 16975,
+          "cost": 5830,
+          "orders": 59,
+          "gmvDelta": -0.11969091946273924
+        },
+        "control": {
+          "id": "1739810000088335",
+          "name": "全域-冷萃茶包组合-直播间引流",
+          "roi": 2.5971694127587663,
+          "preRoi": 2.5524029083170774,
+          "revenue": 12295,
+          "gmvDelta": -0.14576530257764186
+        },
+        "did": -0.675818110845054,
+        "gmvRelative": 0.02607438311490262,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.8283361921097772,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-10-rec_budget_cap_1723560000009224",
+      "asOf": "2026-10-10",
+      "t7": "2026-10-17",
+      "templateId": "budget_cap",
+      "templateLabel": "预算撞线",
+      "scope": {
+        "accountId": "1723560000009224",
+        "accountName": "简味食品旗舰店",
+        "planIds": [],
+        "planName": null
+      },
+      "scopeLine": "简味食品旗舰店",
+      "visible": {
+        "roi": 4.80876651378735,
+        "cost": 124063,
+        "orders": 6704,
+        "conversions": 957.7142857142857,
+        "goal": 3.5,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "报表延迟 21 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_budget_cap_1723560000009224",
+        "title": "预算接近撞线：加预算 10%，还是保持？",
+        "suggestion": "预算 +10%，观察 7 天",
+        "action": {
+          "type": "budget",
+          "targetType": "account",
+          "targetId": "1723560000009224",
+          "targetName": "简味食品旗舰店",
+          "field": "budget",
+          "before": 22000,
+          "after": 24200,
+          "unit": "元/日",
+          "deltaPct": 10,
+          "tool": "apply_budget_change",
+          "actionLabel": "调整账户日预算"
+        },
+        "effectiveAction": "increase",
+        "expected": {
+          "label": "7 天支付GMV",
+          "value": null,
+          "unit": "",
+          "text": "账户日预算 ¥22,000 → ¥24,200 元，预计带来增量 GMV，ROI 可能小幅回落"
+        },
+        "impact": "高",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 5.074693997190131,
+          "revenue": 502075,
+          "cost": 98937,
+          "orders": 5641,
+          "gmvDelta": -0.15842538426725217
+        },
+        "control": {
+          "id": "1723560000006293",
+          "name": "初见美妆旗舰店",
+          "roi": 4.849576810649501,
+          "preRoi": 4.507258076352908,
+          "revenue": 476146,
+          "gmvDelta": 0.5505399174167329
+        },
+        "did": -0.0763912508938116,
+        "gmvRelative": -0.7089653016839851,
+        "gold": "reduce",
+        "guardrail": false
+      },
+      "calibration": null,
+      "matched": false,
+      "badcaseReason": "建议 increase，事后标签 reduce（DiD -0.08，GMV 相对 -70.9%）"
+    },
+    {
+      "id": "2026-10-10-rec_low_roi_high_spend_1739810000142542",
+      "asOf": "2026-10-10",
+      "t7": "2026-10-17",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [
+          "1739810000142542"
+        ],
+        "planName": "标准-轻量徒步鞋-短视频带货"
+      },
+      "scopeLine": "标准-轻量徒步鞋-短视频带货 · 沐野运动旗舰店",
+      "visible": {
+        "roi": 3.4132476520019774,
+        "cost": 20230,
+        "orders": 191,
+        "conversions": 27.285714285714285,
+        "goal": 4.3,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000142542",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000142542",
+          "targetName": "标准-轻量徒步鞋-短视频带货",
+          "field": "budget",
+          "before": 5051,
+          "after": 4545.9,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.61,
+          "unit": "",
+          "text": "计划日预算 ¥5,051 → ¥4,546 元，先收缩低效消耗"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.613355199828871,
+          "revenue": 101351,
+          "cost": 28049,
+          "orders": 286,
+          "gmvDelta": 0.4677914554670528
+        },
+        "control": {
+          "id": "1739810000118785",
+          "name": "标准-联名盲盒手办-达人相似人群",
+          "roi": 3.3988661477851445,
+          "preRoi": 3.4595309025301053,
+          "revenue": 70744,
+          "gmvDelta": -0.14198736219087704
+        },
+        "did": 0.26077230257185446,
+        "gmvRelative": 0.6097788176579299,
+        "gold": "increase",
+        "guardrail": true
+      },
+      "calibration": 0.003355199828871225,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 increase（DiD 0.26，GMV 相对 61.0%）"
+    },
+    {
+      "id": "2026-10-10-rec_low_roi_high_spend_1739810000166912",
+      "asOf": "2026-10-10",
+      "t7": "2026-10-17",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000020948",
+        "accountName": "拾光会员商店",
+        "planIds": [
+          "1739810000166912"
+        ],
+        "planName": "全域-高腰直筒牛仔裤-晚场直播冲刺"
+      },
+      "scopeLine": "全域-高腰直筒牛仔裤-晚场直播冲刺 · 拾光会员商店",
+      "visible": {
+        "roi": 3.4838355304457,
+        "cost": 6372,
+        "orders": 70,
+        "conversions": 10,
+        "goal": 4.7,
+        "sampleAdequate": false,
+        "dataGaps": [
+          "报表延迟 20 分钟"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000166912",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000166912",
+          "targetName": "全域-高腰直筒牛仔裤-晚场直播冲刺",
+          "field": "budget",
+          "before": 2026,
+          "after": 1823.4,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.68,
+          "unit": "",
+          "text": "计划日预算 ¥2,026 → ¥1,823 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.961427392739274,
+          "revenue": 14357,
+          "cost": 4848,
+          "orders": 49,
+          "gmvDelta": -0.35325915581782963
+        },
+        "control": {
+          "id": "1739810000088335",
+          "name": "全域-冷萃茶包组合-直播间引流",
+          "roi": 2.6173688736027514,
+          "preRoi": 2.625885605667876,
+          "revenue": 12176,
+          "gmvDelta": -0.19873650960779154
+        },
+        "did": -0.5138914056413011,
+        "gmvRelative": -0.15452264621003808,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.7185726072607261,
+      "matched": true,
+      "badcaseReason": null
+    },
+    {
+      "id": "2026-10-09-rec_low_roi_high_spend_1739810000142542",
+      "asOf": "2026-10-09",
+      "t7": "2026-10-16",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000018017",
+        "accountName": "沐野运动旗舰店",
+        "planIds": [
+          "1739810000142542"
+        ],
+        "planName": "标准-轻量徒步鞋-短视频带货"
+      },
+      "scopeLine": "标准-轻量徒步鞋-短视频带货 · 沐野运动旗舰店",
+      "visible": {
+        "roi": 3.4182527547846258,
+        "cost": 18967,
+        "orders": 178,
+        "conversions": 25.428571428571427,
+        "goal": 4.3,
+        "sampleAdequate": true,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000142542",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000142542",
+          "targetName": "标准-轻量徒步鞋-短视频带货",
+          "field": "budget",
+          "before": 5051,
+          "after": 4545.9,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.62,
+          "unit": "",
+          "text": "计划日预算 ¥5,051 → ¥4,546 元，先收缩低效消耗"
+        },
+        "impact": "高",
+        "confidence": "medium"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.5024851809579913,
+          "revenue": 95131,
+          "cost": 27161,
+          "orders": 269,
+          "gmvDelta": 0.4673011074436253
+        },
+        "control": {
+          "id": "1739810000118785",
+          "name": "标准-联名盲盒手办-达人相似人群",
+          "roi": 3.2849794238683128,
+          "preRoi": 3.5182934657024263,
+          "revenue": 70246,
+          "gmvDelta": -0.1456232744256194
+        },
+        "did": 0.3175464680074791,
+        "gmvRelative": 0.6129243818692447,
+        "gold": "increase",
+        "guardrail": true
+      },
+      "calibration": 0.11751481904200878,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 increase（DiD 0.32，GMV 相对 61.3%）"
+    },
+    {
+      "id": "2026-10-09-rec_low_roi_high_spend_1739810000031676",
+      "asOf": "2026-10-09",
+      "t7": "2026-10-16",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000004339",
+        "accountName": "轻氧家居旗舰店",
+        "planIds": [
+          "1739810000031676"
+        ],
+        "planName": "标准-纯棉四件套-晚场直播冲刺"
+      },
+      "scopeLine": "标准-纯棉四件套-晚场直播冲刺 · 轻氧家居旗舰店",
+      "visible": {
+        "roi": 3.425704552493032,
+        "cost": 16145,
+        "orders": 168,
+        "conversions": 24,
+        "goal": 4.1,
+        "sampleAdequate": true,
+        "dataGaps": [
+          "商品交易未授权"
+        ]
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000031676",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000031676",
+          "targetName": "标准-纯棉四件套-晚场直播冲刺",
+          "field": "budget",
+          "before": 5482,
+          "after": 4933.8,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "reduce",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.63,
+          "unit": "",
+          "text": "计划日预算 ¥5,482 → ¥4,934 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 3.337689909109003,
+          "revenue": 50309,
+          "cost": 15073,
+          "orders": 154,
+          "gmvDelta": -0.0903847544659
+        },
+        "control": {
+          "id": "1739810000079190",
+          "name": "标准-原味燕麦奶 12 盒-晚场直播冲刺",
+          "roi": 3.6293888166449935,
+          "preRoi": 3.7148603697687013,
+          "revenue": 44656,
+          "gmvDelta": -0.07009287409937115
+        },
+        "did": -0.002543090260321179,
+        "gmvRelative": -0.020291880366528847,
+        "gold": "observe",
+        "guardrail": true
+      },
+      "calibration": 0.292310090890997,
+      "matched": false,
+      "badcaseReason": "建议 reduce，事后标签 observe（DiD -0.00，GMV 相对 -2.0%）"
+    },
+    {
+      "id": "2026-10-09-rec_low_roi_high_spend_1739810000008532",
+      "asOf": "2026-10-09",
+      "t7": "2026-10-16",
+      "templateId": "low_roi_high_spend",
+      "templateLabel": "低 ROI 高消耗",
+      "scope": {
+        "accountId": "1723560000001408",
+        "accountName": "花间集轻奢线",
+        "planIds": [
+          "1739810000008532"
+        ],
+        "planName": "全域-羊毛混纺大衣-商品卡推广"
+      },
+      "scopeLine": "全域-羊毛混纺大衣-商品卡推广 · 花间集轻奢线",
+      "visible": {
+        "roi": 2.865710399406455,
+        "cost": 8087,
+        "orders": 48,
+        "conversions": 6.857142857142857,
+        "goal": 4.2,
+        "sampleAdequate": false,
+        "dataGaps": []
+      },
+      "recommendation": {
+        "id": "rec_low_roi_high_spend_1739810000008532",
+        "title": "低 ROI 高消耗：降预算 10%，还是暂停？",
+        "suggestion": "预算 -10%，观察 3 天；不直接暂停",
+        "action": {
+          "type": "budget",
+          "targetType": "plan",
+          "targetId": "1739810000008532",
+          "targetName": "全域-羊毛混纺大衣-商品卡推广",
+          "field": "budget",
+          "before": 2949,
+          "after": 2654.1,
+          "unit": "元/日",
+          "deltaPct": -10,
+          "tool": "adjust_plan_budget",
+          "actionLabel": "调整计划日预算"
+        },
+        "effectiveAction": "observe",
+        "expected": {
+          "label": "7 天支付ROI",
+          "value": 3.07,
+          "unit": "",
+          "text": "计划日预算 ¥2,949 → ¥2,654 元，先收缩低效消耗"
+        },
+        "impact": "中",
+        "confidence": "low"
+      },
+      "hidden": {
+        "target": {
+          "roi": 2.748943959448043,
+          "revenue": 19523,
+          "cost": 7102,
+          "orders": 41,
+          "gmvDelta": -0.15758360302049623
+        },
+        "control": {
+          "id": "1739810000009145",
+          "name": "全域-法式碎花连衣裙-达人相似人群",
+          "roi": 2.7180212014134275,
+          "preRoi": 2.878470824949698,
+          "revenue": 19230,
+          "gmvDelta": -0.10387250104851109
+        },
+        "did": 0.04368318357785839,
+        "gmvRelative": -0.05371110197198514,
+        "gold": "observe",
+        "guardrail": null
+      },
+      "calibration": 0.3210560405519569,
+      "matched": true,
+      "badcaseReason": null
+    }
+  ]
+}

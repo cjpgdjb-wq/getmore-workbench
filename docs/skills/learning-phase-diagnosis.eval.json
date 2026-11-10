@@ -1,0 +1,542 @@
+{
+  "generatedAt": 1793862843048,
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "verdictMatches": 10,
+    "forbiddenHits": 0
+  },
+  "results": [
+    {
+      "id": "lp-001",
+      "name": "学习期低 ROI，样本足够",
+      "expectedVerdict": "reduce",
+      "actualVerdict": "reduce",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "学习期",
+          "hit": true
+        },
+        {
+          "keyword": "预算 -10%",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "暂停计划",
+          "hit": false
+        },
+        {
+          "keyword": "加预算",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "reduce",
+        "evidence": [
+          "学习第5天，7天ROI 2.8 低于目标3.5，差距0.7（约-20%）",
+          "日均转化30，高于20样本阈值；数据延迟12分钟且partialAuth=false，数据健康可判断",
+          "消耗占比32%，库存20天≥7天，余额5天≥3天，具备降预算缓冲"
+        ],
+        "action": "budget -10%（先 simulate_budget_change，再由广告投放专家提交待确认 Decision）",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 516,
+        "completion_tokens": 936,
+        "total_tokens": 1452,
+        "prompt_tokens_details": {
+          "cached_tokens": 382
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 798
+        },
+        "prompt_cache_hit_tokens": 382,
+        "prompt_cache_miss_tokens": 134
+      }
+    },
+    {
+      "id": "lp-002",
+      "name": "学习期样本不足",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "预算 -10%",
+          "hit": false
+        },
+        {
+          "keyword": "暂停计划",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "学习期第 2 天，7 天 ROI 为 2.6，低于目标 4；但日均转化仅 8 次（<20），样本不足，暂不据此做硬性动作",
+          "数据延迟 18 分钟、无部分授权缺失；消耗占比 18%，库存可售 30 天、余额可支撑 6 天，均未触发停止条件",
+          "当前处于学习期且转化不足，按技能只观察，不直接暂停或降预算"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 514,
+        "completion_tokens": 369,
+        "total_tokens": 883,
+        "prompt_tokens_details": {
+          "cached_tokens": 380
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 218
+        },
+        "prompt_cache_hit_tokens": 380,
+        "prompt_cache_miss_tokens": 134
+      }
+    },
+    {
+      "id": "lp-003",
+      "name": "学习期但库存/余额不足",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "预算 -10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "学习第8天，7天ROI=3.0，低于目标3.5（差14.3%）",
+          "转化25/天≥20，但库存可售2天<7天、余额1天<3天，不具备降预算或暂停条件",
+          "数据延迟35分钟且partialAuth=true，消耗占比45%，数据健康不足，置信度低"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "low"
+      },
+      "usage": {
+        "prompt_tokens": 514,
+        "completion_tokens": 478,
+        "total_tokens": 992,
+        "prompt_tokens_details": {
+          "cached_tokens": 380
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 355
+        },
+        "prompt_cache_hit_tokens": 380,
+        "prompt_cache_miss_tokens": 134
+      }
+    },
+    {
+      "id": "lp-004",
+      "name": "数据延迟 + 部分授权",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "预算 -10%",
+          "hit": false
+        },
+        {
+          "keyword": "暂停计划",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "学习第6天，ROI 2.4 低于目标 4；转化 22/天，样本刚超过 20 门槛",
+          "数据延迟 95 分钟且授权不完整（partialAuth=true），数据健康不足",
+          "库存 15 天、余额 5 天均高于护栏（7天/3天），消耗占比 28%"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "low"
+      },
+      "usage": {
+        "prompt_tokens": 515,
+        "completion_tokens": 440,
+        "total_tokens": 955,
+        "prompt_tokens_details": {
+          "cached_tokens": 381
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 318
+        },
+        "prompt_cache_hit_tokens": 381,
+        "prompt_cache_miss_tokens": 134
+      }
+    },
+    {
+      "id": "lp-005",
+      "name": "库存和余额同时偏紧",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "预算 -10%",
+          "hit": false
+        },
+        {
+          "keyword": "加预算",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "学习第9天，7天ROI为2.9，低于目标3.5（差0.6，约17%）",
+          "日均转化25次，高于20次样本门槛，样本充足",
+          "库存可售3天低于7天、余额可用2天低于3天，消耗占比38%"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 521,
+        "completion_tokens": 416,
+        "total_tokens": 937,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 306
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 137
+      }
+    },
+    {
+      "id": "lp-006",
+      "name": "转化 19/天，刚好低于样本门槛",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        },
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "学习期第6天，roi7d=3.0低于目标3.5，差距约14.3%",
+          "日均转化19 < 20，样本不足，不硬下结论",
+          "库存可售20天、余额5天、数据延迟10分钟，数据健康可观察"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "low"
+      },
+      "usage": {
+        "prompt_tokens": 514,
+        "completion_tokens": 285,
+        "total_tokens": 799,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 178
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 258
+      }
+    },
+    {
+      "id": "lp-007",
+      "name": "转化 20/天，刚好达到样本门槛",
+      "expectedVerdict": "reduce",
+      "actualVerdict": "reduce",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "reduce",
+        "evidence": [
+          "学习第6天，ROI7d 3.0 低于目标3.5，差0.5（约14%）",
+          "日均转化20，达到样本阈值（非<20/天），可做判断",
+          "消耗占比25%，库存可售20天，余额5天，均高于停止/观察阈值；数据延迟10分钟且授权正常"
+        ],
+        "action": "budget -10%（先 simulate_budget_change，再由广告投放专家提交待确认 Decision）",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 514,
+        "completion_tokens": 1341,
+        "total_tokens": 1855,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1203
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 258
+      }
+    },
+    {
+      "id": "lp-008",
+      "name": "库存 7 天、余额 3 天，刚好达护栏",
+      "expectedVerdict": "reduce",
+      "actualVerdict": "reduce",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "reduce",
+        "evidence": [
+          "学习第 6 天，ROI7d 为 3.0，目标为 3.5，低于目标 0.5（约 14%）。",
+          "转化 30/天（≥20），样本充足；消耗占比 25%，数据延迟 10 分钟、授权正常。",
+          "库存可售 7 天、余额可用 3 天，均处于护栏下限。"
+        ],
+        "action": "budget -10%（交给广告投放专家提交 Decision）",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 514,
+        "completion_tokens": 706,
+        "total_tokens": 1220,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 566
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 258
+      }
+    },
+    {
+      "id": "lp-009",
+      "name": "数据延迟 60 分钟",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        },
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "学习期第6天，ROI 7天为3.0，低于目标3.5",
+          "日均转化19次/天，低于20次/天的样本门槛，暂不足以判定计划失效",
+          "消耗占比25%，库存可售20天、余额5天；数据延迟60分钟，无部分授权缺失"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "low"
+      },
+      "usage": {
+        "prompt_tokens": 514,
+        "completion_tokens": 325,
+        "total_tokens": 839,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 213
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 258
+      }
+    },
+    {
+      "id": "lp-010",
+      "name": "计划已暂停，不重复提交",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "pause_plan",
+          "hit": false
+        },
+        {
+          "keyword": "apply_budget_change",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "不检查"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "evidence": [
+          "学习第6天，ROI 3.0 低于目标3.5，差0.5（约-14.3%）",
+          "日均转化19 < 20，样本不足，仅观察",
+          "cost7d=0且计划已暂停；库存20天≥7天，余额5天≥3天"
+        ],
+        "action": "observe",
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "low"
+      },
+      "usage": {
+        "prompt_tokens": 532,
+        "completion_tokens": 571,
+        "total_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 459
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 276
+      }
+    }
+  ]
+}

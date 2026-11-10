@@ -1,0 +1,57 @@
+{
+  "id": "learning_phase_diagnosis",
+  "name": "学习期诊断",
+  "version": "0.1",
+  "description": "判断学习期计划该继续、降预算还是只观察，避免误停和误加。",
+  "expertIds": [
+    "analytics",
+    "ads"
+  ],
+  "toolNames": [
+    "query_plans",
+    "get_account_trend",
+    "get_budget_pacing",
+    "simulate_budget_change"
+  ],
+  "triggers": [
+    "计划处于学习期",
+    "ROI 低于目标",
+    "用户问要不要降预算/暂停"
+  ],
+  "steps": [
+    "先看数据健康：延迟、授权、缺失字段",
+    "确认是否在学习期，以及学习第几天",
+    "对比 7 天 ROI / 订单成本与计划目标",
+    "检查消耗占比、库存可售天数、账户余额",
+    "样本不足（转化 <20/天）只观察；否则给出降预算或观察建议"
+  ],
+  "output": {
+    "verdict": "observe | reduce | pause",
+    "evidence": [
+      "3 条以内，必须带数字"
+    ],
+    "action": "observe 或 budget -10%（交给广告投放专家提交 Decision）",
+    "guardrail": [
+      "GMV ≥ -5%",
+      "库存 ≥7 天",
+      "余额 ≥3 天"
+    ],
+    "confidence": "low | medium | high"
+  },
+  "failure": "数据延迟/缺失、样本不足、库存不足时，只观察，不硬下结论。",
+  "businessProblem": "学习期计划 ROI 低于目标时，优化师容易走两个极端：直接暂停打断学习，或继续加预算越投越亏。",
+  "designRationale": "把判断固定成一条顺序：数据健康 → 学习期天数 → ROI/订单成本 vs 目标 → 库存/余额 → 只观察或降 10%。样本不足、数据缺失、库存/余额不足时一律只观察。",
+  "businessMetrics": [
+    "学习期 ROI",
+    "支付 GMV",
+    "订单成本",
+    "回滚率"
+  ],
+  "closedLoop": "技能 → 专家 → 工具 → 待确认 Decision → 3–7 天实验 → 复盘 → 回写默认策略；评测发现加预算模板失效后，默认策略已切到只降不增。",
+  "evidence": [
+    "skill 级 10/10",
+    "完整工具链 pass@3 3/3"
+  ],
+  "evalCaseFile": "docs/skills/learning-phase-diagnosis.cases.json",
+  "doc": "SKILL.md"
+}

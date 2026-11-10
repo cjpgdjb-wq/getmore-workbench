@@ -1,0 +1,55 @@
+{
+  "id": "creative_reject_guard",
+  "name": "素材拒审止损",
+  "version": "0.1",
+  "description": "素材被拒审、计划还在花钱时，判断该暂停还是只观察。",
+  "expertIds": [
+    "analytics",
+    "ads"
+  ],
+  "toolNames": [
+    "query_plans",
+    "get_account_plans",
+    "pause_plan"
+  ],
+  "triggers": [
+    "素材拒审",
+    "没有可投素材",
+    "计划还在消耗"
+  ],
+  "steps": [
+    "查计划消耗和素材审核状态",
+    "统计通过/拒绝素材数",
+    "全部素材拒审且计划仍在消耗：暂停",
+    "只有部分拒审：只观察，提示替换被拒素材",
+    "计划已暂停/无消耗：只观察"
+  ],
+  "output": {
+    "verdict": "pause | observe",
+    "evidence": [
+      "3 条以内，必须带拒审素材数和消耗"
+    ],
+    "action": "pause_plan 或 observe",
+    "guardrail": [
+      "不重复暂停",
+      "暂停可回滚"
+    ],
+    "confidence": "low | medium | high"
+  },
+  "failure": "素材数据缺失、计划已暂停、无消耗时，只观察；全部拒审时不得建议恢复投放。",
+  "businessProblem": "素材拒审后计划仍可能继续消耗；如果全部素材都被拒，计划实际上没有可交付素材，继续投就是浪费。",
+  "designRationale": "先查计划消耗和素材审核状态；全部素材拒审且仍在消耗 → 暂停；部分拒审 → 只观察并提示替换；计划已暂停/无消耗 → 只观察。",
+  "businessMetrics": [
+    "拒审素材数",
+    "计划消耗",
+    "可交付素材",
+    "退款率"
+  ],
+  "closedLoop": "技能 → analytics 查拒审素材 → ads 提交暂停 Decision → 优化师换素材/重启 → 回写拒审止损规则。",
+  "evidence": [
+    "skill 级 5/5",
+    "完整工具链 pass@3 3/3"
+  ],
+  "evalCaseFile": "docs/skills/creative-reject-guard.cases.json",
+  "doc": "SKILL.md"
+}

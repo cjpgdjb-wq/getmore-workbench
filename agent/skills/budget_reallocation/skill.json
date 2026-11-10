@@ -1,0 +1,67 @@
+{
+  "id": "budget_reallocation",
+  "name": "预算重排",
+  "version": "0.1",
+  "description": "在账户之间做 10% 的预算挪移：低 ROI 高消耗降、高 ROI 有空间加。",
+  "expertIds": [
+    "analytics",
+    "ads"
+  ],
+  "toolNames": [
+    "query_accounts",
+    "get_account_trend",
+    "get_budget_pacing",
+    "simulate_budget_change",
+    "apply_budget_change"
+  ],
+  "triggers": [
+    "预算怎么分",
+    "把低 ROI 的预算挪到高 ROI",
+    "整体 ROI 低"
+  ],
+  "steps": [
+    "先看数据健康：延迟、授权、缺失字段",
+    "对比账户 ROI / 目标 / 消耗，找低 ROI 高消耗账户",
+    "找 1 个 ROI 高于目标、库存和余额有空间的账户",
+    "检查 donor 和 recipient 的库存、余额、消耗占比",
+    "先 simulate 两侧，再提交 donor -10% + recipient +10% 两个待确认 Decision"
+  ],
+  "output": {
+    "verdict": "reallocate | observe",
+    "moves": [
+      {
+        "accountId": "string",
+        "accountName": "string",
+        "deltaPct": -10,
+        "reason": "string"
+      }
+    ],
+    "evidence": [
+      "3 条以内，必须带数字"
+    ],
+    "guardrail": [
+      "不暂停",
+      "不增加总预算",
+      "库存 ≥7 天",
+      "余额 ≥3 天"
+    ],
+    "confidence": "low | medium | high"
+  },
+  "failure": "没有清晰 donor/recipient、数据缺失、库存不足、余额不足时，只观察，不提交动作。",
+  "businessProblem": "整体 ROI 低时，优化师常常只降预算，不告诉钱去哪；或者凭感觉加给高 ROI 账户，没有 donor/recipient 依据。",
+  "designRationale": "先找 1 个低 ROI 高消耗 donor，再找 1 个 ROI 高于目标、库存/余额有空间的 recipient；先模拟两侧，再提交 donor -10% + recipient +10%；不暂停、不增加总预算、最多 2 个动作。",
+  "businessMetrics": [
+    "账户 ROI",
+    "支付 GMV",
+    "预算使用率",
+    "回滚率"
+  ],
+  "closedLoop": "技能 → analytics 找 donor/recipient → ads 模拟并提交两个 Decision → 优化师确认 → 3–7 天复盘；没有清晰 donor/recipient 时只观察。",
+  "evidence": [
+    "skill 级 10/10",
+    "完整工具链 pass@3 3/3",
+    "donor 18,000→16,200 / recipient 19,800→21,780"
+  ],
+  "evalCaseFile": "docs/skills/budget-reallocation.cases.json",
+  "doc": "SKILL.md"
+}

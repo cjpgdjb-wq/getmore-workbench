@@ -1,0 +1,17 @@
+{
+  "providers": {
+    "deepseek": {
+      "api_key": "${DEEPSEEK_API_KEY}",
+      "api_base": "https://api.deepseek.com"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "provider": "deepseek",
+      "model": "deepseek-flash"
+    }
+  },
+  "gateway": {
+    "port": 18790
+  }
+}

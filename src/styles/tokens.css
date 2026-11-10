@@ -1,0 +1,67 @@
+:root {
+  /* Brand */
+  --blue: #2b6bff;
+  --blue-strong: #1f5ae0;
+  --blue-soft: #eaf1ff;
+  --blue-soft-2: #dbe7ff;
+  --blue-line: #c9d8ff;
+
+  /* Agent accent */
+  --violet: #6f5cf5;
+  --violet-soft: #f1eeff;
+  --violet-line: #ded6ff;
+
+  /* Ink */
+  --ink: #1f2329;
+  --ink-2: #4e5969;
+  --ink-3: #646a73;
+  --ink-4: #8f959e;
+  --ink-5: #a9aeb8;
+  --ink-6: #c9cdd4;
+
+  /* Lines & surfaces */
+  --line: #e5e6eb;
+  --line-2: #eff0f1;
+  --line-3: #f0f1f3;
+  --bg: #f2f4f8;
+  --bg-2: #f7f8fa;
+  --bg-3: #f5f7fa;
+  --surface: #ffffff;
+  --surface-sub: #fbfbfd;
+
+  /* Status */
+  --green: #00b42a;
+  --green-soft: #e8ffea;
+  --orange: #ff7d00;
+  --orange-soft: #fff7e8;
+  --red: #f53f3f;
+  --red-soft: #ffece8;
+  --gold: #ffb400;
+
+  /* Shape */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  --r-xl: 12px;
+  --r-pill: 999px;
+
+  /* Elevation */
+  --shadow-card: 0 1px 6px rgba(31, 35, 41, 0.05);
+  --shadow-soft: 0 1px 3px rgba(31, 35, 41, 0.06);
+  --shadow-pop: 0 6px 24px rgba(31, 35, 41, 0.12);
+  --shadow-modal: 0 12px 48px rgba(31, 35, 41, 0.18);
+
+  /* Layout */
+  --header-h: 56px;
+  --sidebar-w: 176px;
+  --page-pad: 16px;
+
+  /* Type */
+  --font-sans:
+    "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei", "Helvetica Neue",
+    "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-num:
+    "DIN Alternate", "SF Pro Display", "Helvetica Neue", "PingFang SC",
+    system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", "JetBrains Mono", Consolas, "Courier New", monospace;
+}

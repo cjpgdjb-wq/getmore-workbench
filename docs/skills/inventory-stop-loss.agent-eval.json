@@ -1,0 +1,192 @@
+{
+  "generatedAt": 1794232610550,
+  "summary": {
+    "goal": "库存止损：计划「全域-原味燕麦奶 12 盒-晚场直播冲刺」（plan_id=1739810000071884，account_id=1723560000009224，账户：简味食品旗舰店）商品库存约 1296 件、可售约 3 天，计划仍在投放。请先查计划和库存，提交暂停或降预算 20% 的待确认动作；不要加预算。",
+    "plan": "全域-原味燕麦奶 12 盒-晚场直播冲刺",
+    "account": "简味食品旗舰店",
+    "attempts": 3,
+    "passedAttempts": 3,
+    "passAt3": true,
+    "results": [
+      {
+        "attempt": 1,
+        "pass": true,
+        "passed": 5,
+        "total": 5,
+        "error": null,
+        "checks": [
+          {
+            "name": "选到 analytics + ads",
+            "pass": true,
+            "actual": "ads,analytics"
+          },
+          {
+            "name": "查了计划/库存",
+            "pass": true,
+            "actual": "query_plans,get_account_plans"
+          },
+          {
+            "name": "提交暂停或降 20%",
+            "pass": true,
+            "actual": "pause_plan"
+          },
+          {
+            "name": "没有加预算",
+            "pass": true,
+            "actual": "无"
+          },
+          {
+            "name": "结论提到库存",
+            "pass": true,
+            "actual": "是"
+          }
+        ],
+        "toolCalls": [
+          "load_skill",
+          "query_plans",
+          "load_skill",
+          "get_account_plans",
+          "get_budget_pacing",
+          "get_account_trend",
+          "compare_periods",
+          "pause_plan"
+        ],
+        "experts": [
+          "ads",
+          "analytics"
+        ],
+        "pending": [
+          {
+            "tool": "pause_plan",
+            "targetName": "全域-原味燕麦奶 12 盒-晚场直播冲刺",
+            "before": "投放中",
+            "after": "已暂停",
+            "status": "pending"
+          }
+        ],
+        "synthesis": "### 结论\n建议优化师确认暂停「全域-原味燕麦奶 12 盒-晚场直播冲刺」（plan_id=1739810000071884）；该动作已提交待确认、尚未执行。不采纳“账户预算-20%”替代，因无计划级预算写工具且会误伤同账户其他计划。\n\n### 关键依据\n- 库存：原味燕麦奶12盒在售1296件、可售约3天，计划仍投放，命中库存≤3天止损阈值。\n- 计划近7天消耗50,805、订单3,025（日均"
+      },
+      {
+        "attempt": 2,
+        "pass": true,
+        "passed": 5,
+        "total": 5,
+        "error": null,
+        "checks": [
+          {
+            "name": "选到 analytics + ads",
+            "pass": true,
+            "actual": "analytics,ads"
+          },
+          {
+            "name": "查了计划/库存",
+            "pass": true,
+            "actual": "query_plans,get_account_plans"
+          },
+          {
+            "name": "提交暂停或降 20%",
+            "pass": true,
+            "actual": "pause_plan"
+          },
+          {
+            "name": "没有加预算",
+            "pass": true,
+            "actual": "无"
+          },
+          {
+            "name": "结论提到库存",
+            "pass": true,
+            "actual": "是"
+          }
+        ],
+        "toolCalls": [
+          "load_skill",
+          "query_plans",
+          "get_account_trend",
+          "load_skill",
+          "get_budget_pacing",
+          "get_account_plans",
+          "compare_periods",
+          "query_accounts",
+          "simulate_budget_change",
+          "pause_plan"
+        ],
+        "experts": [
+          "analytics",
+          "ads"
+        ],
+        "pending": [
+          {
+            "tool": "pause_plan",
+            "targetName": "全域-原味燕麦奶 12 盒-晚场直播冲刺",
+            "before": "投放中",
+            "after": "已暂停",
+            "status": "pending"
+          }
+        ],
+        "synthesis": "### 结论\n「全域-原味燕麦奶 12 盒-晚场直播冲刺」可售约 3 天，已达到库存止损线，但 ROI 5.28 并不低，因此本次止损是因为库存风险，与投放效率无关。已提交 1 笔**暂停计划**动作，**待优化师确认，尚未执行**；计划级“降预算 20%”因工具能力不足无法执行。\n\n### 关键依据\n1. 计划 1739810000071884：库存 1,296 件、可售 3 天且仍在投放；近 7 天消耗 50,805、订单 3,025（日均 432.1 单，样本充足）、ROI 5.28、订单成本 16.8、退款率 17%。ROI 5.28 高于竞价大盘 3.76，因此不能按低效标准处理该计划。\n2. 该计划占账户消耗 51.9%；账户日预算 19,800、余额 38,273、可支撑 2.74 天。计划级没有日预算写入工具；账户预算 -20% 会同时压低库存健康的「冷萃茶包组合」（6,877 件/17.29 天），所以**未提交**，避免用账户工具代替计划级操作、产生不必要的副作用。\n3. 账户报表延迟 21 分钟，库存按 T-1 口径，置信度 medium；forecast_plan 未获取，不做走势预测。\n\n### 执行方案\n1. **待优化师确认**：暂停 1739810000071884，状态 投放中 → 已暂停（dec_mw9bqq94_0048d，riskLevel=high，5 分钟内有效）。确认前计划仍正常投放，日均消耗约 7,258；确认后账户将减少 8,911 预算容量。\n2. 若优化师希望保住直播流量、不直接停投，可另行判断是否提交出价 -15%；本任务未提交，且不得以账户预算下调变相实现。\n3. 补货入仓后提交 resume_plan 恢复，避免双 11 蓄水期断档。\n\n### 风险与验证\n3 天后验证：库存实际消化与补货进度、退款率能否从 17% 回落、账户余额 38,273（2.74 天）是否需同步充值、冷萃茶包组合能否承接流量；补货到位即回滚恢复，库存继续下降则维持暂停。"
+      },
+      {
+        "attempt": 3,
+        "pass": true,
+        "passed": 5,
+        "total": 5,
+        "error": null,
+        "checks": [
+          {
+            "name": "选到 analytics + ads",
+            "pass": true,
+            "actual": "ads,analytics"
+          },
+          {
+            "name": "查了计划/库存",
+            "pass": true,
+            "actual": "get_account_plans,query_plans"
+          },
+          {
+            "name": "提交暂停或降 20%",
+            "pass": true,
+            "actual": "pause_plan"
+          },
+          {
+            "name": "没有加预算",
+            "pass": true,
+            "actual": "无"
+          },
+          {
+            "name": "结论提到库存",
+            "pass": true,
+            "actual": "是"
+          }
+        ],
+        "toolCalls": [
+          "load_skill",
+          "get_budget_pacing",
+          "get_account_plans",
+          "load_skill",
+          "query_accounts",
+          "query_plans",
+          "get_account_trend",
+          "forecast_plan",
+          "compare_periods",
+          "get_org_summary",
+          "pause_plan"
+        ],
+        "experts": [
+          "ads",
+          "analytics"
+        ],
+        "pending": [
+          {
+            "tool": "pause_plan",
+            "targetName": "全域-原味燕麦奶 12 盒-晚场直播冲刺",
+            "before": "投放中",
+            "after": "已暂停",
+            "status": "pending"
+          }
+        ],
+        "synthesis": "### 结论\n建议优化师确认对「全域-原味燕麦奶 12 盒-晚场直播冲刺」**暂停投放**（已提交待确认）。该计划 ROI 健康，但库存 1,296 件、可售仅 3.0 天，缺货引发的退款和履约风险不可逆，止损优先。\n\n### 关键依据\n- 计划近 7 天消耗 50,805 元，占账户 97,831 元的 **51.9%**；ROI 5.28、订单成本 16.8 元，日均 432 单（样本充足，不存在样本不足问题）。\n- 换算后净口径 ROI 4.40、净订单成本 20.14 元，退款率 17%；库存为 3.0 天，账户余额 38,273 元仅可支撑 **2.74 天**，两个缺口同期到期。\n- 计划级降预算 20%（8,911→7,128.8 元）**未提交**：工具链无计划级日预算写功能；账户预算 -20% 也**未提交**，因会误伤库存 17.29 天、ROI 5.29 的「标准-冷萃茶包组合-达人相似人群」。\n\n### 执行方案\n1. **待优化师确认**：暂停该计划，状态由「投放中」变为「已暂停」。确认前不变（持续消耗、库存继续下降）；确认后该计划停止消耗，账户其余计划（约 12,332 元预算）不受影响。\n2. 不做任何加预算动作；若优化师判断晚场直播能清货 3 天库存，可驳回暂停，改补货+观察，我不做额外动作。\n3. 补货到位或可售回到 4 天以上，再提交 resume 恢复。\n\n### 风险与验证\n报表延迟 21 分钟，结论为中置信。3 天后看：净 ROI ≥3.9（预测区间 4.42–5.98，置信度 medium，验证点=净 ROI 4.33）、订单成本 ≤19 元、退款率 ≤19.6%；若净 ROI 跌破 3.7 或退款率 >21.6%，维持暂停不放量。"
+      }
+    ]
+  }
+}

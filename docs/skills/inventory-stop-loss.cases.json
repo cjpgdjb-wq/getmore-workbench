@@ -1,0 +1,396 @@
+{
+  "skillId": "inventory_stop_loss",
+  "version": "0.1",
+  "note": "5 个库存止损 case；不是线上 A/B。",
+  "cases": [
+    {
+      "id": "is-001",
+      "name": "库存 2 天 + 计划仍在投放",
+      "input": {
+        "accountId": "acc_inv_1",
+        "accountName": "沐野运动旗舰店",
+        "planId": "plan_inv_1",
+        "planName": "标准-轻量徒步鞋-短视频带货",
+        "planStatus": "投放中",
+        "cost7d": 28000,
+        "roi7d": 3.6,
+        "productName": "轻量徒步鞋",
+        "productStatus": "在售",
+        "stock": 60,
+        "stockDays": 2,
+        "ordersPerDay": 30,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "pause",
+        "mustInclude": [
+          {
+            "label": "库存",
+            "any": [
+              "库存",
+              "2 天",
+              "2天"
+            ]
+          }
+        ],
+        "actionAny": [
+          "pause",
+          "暂停"
+        ],
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "暂停可回滚"
+        ]
+      }
+    },
+    {
+      "id": "is-002",
+      "name": "库存 5 天 + 计划仍在投放",
+      "input": {
+        "accountId": "acc_inv_2",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_inv_2",
+        "planName": "全域-每日坚果礼盒-短视频带货",
+        "planStatus": "投放中",
+        "cost7d": 22000,
+        "roi7d": 4.1,
+        "productName": "每日坚果礼盒",
+        "productStatus": "在售",
+        "stock": 150,
+        "stockDays": 5,
+        "ordersPerDay": 30,
+        "dataLagMinutes": 8
+      },
+      "expected": {
+        "verdict": "reduce",
+        "mustInclude": [
+          {
+            "label": "库存",
+            "any": [
+              "库存",
+              "5 天",
+              "5天"
+            ]
+          }
+        ],
+        "actionAny": [
+          "reduce",
+          "budget",
+          "-20%",
+          "降 20%",
+          "降预算"
+        ],
+        "mustNotInclude": [
+          "加预算",
+          "+10%"
+        ],
+        "guardrail": [
+          "不直接暂停"
+        ]
+      }
+    },
+    {
+      "id": "is-003",
+      "name": "库存充足",
+      "input": {
+        "accountId": "acc_inv_3",
+        "accountName": "初见美妆旗舰店",
+        "planId": "plan_inv_3",
+        "planName": "标准-玻尿酸保湿精华-短视频带货",
+        "planStatus": "投放中",
+        "cost7d": 18000,
+        "roi7d": 4.7,
+        "productName": "玻尿酸保湿精华",
+        "productStatus": "在售",
+        "stock": 1200,
+        "stockDays": 30,
+        "ordersPerDay": 40,
+        "dataLagMinutes": 9
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [
+          {
+            "label": "库存充足",
+            "any": [
+              "库存",
+              "30 天",
+              "30天"
+            ]
+          }
+        ],
+        "actionAny": [
+          "observe",
+          "只观察"
+        ],
+        "mustNotInclude": [
+          "暂停",
+          "降预算"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "is-004",
+      "name": "低库存但计划已暂停",
+      "input": {
+        "accountId": "acc_inv_4",
+        "accountName": "花间集旗舰店",
+        "planId": "plan_inv_4",
+        "planName": "标准-法式碎花连衣裙-短视频带货",
+        "planStatus": "已暂停",
+        "cost7d": 0,
+        "roi7d": 0,
+        "productName": "法式碎花连衣裙",
+        "productStatus": "在售",
+        "stock": 40,
+        "stockDays": 2,
+        "ordersPerDay": 20,
+        "dataLagMinutes": 12
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [
+          {
+            "label": "已暂停",
+            "any": [
+              "已暂停",
+              "暂停"
+            ]
+          }
+        ],
+        "actionAny": [
+          "observe",
+          "只观察"
+        ],
+        "mustNotInclude": [
+          "暂停计划",
+          "加预算"
+        ],
+        "guardrail": [
+          "不重复提交"
+        ]
+      }
+    },
+    {
+      "id": "is-005",
+      "name": "库存数据缺失",
+      "input": {
+        "accountId": "acc_inv_5",
+        "accountName": "星野数码旗舰店",
+        "planId": "plan_inv_5",
+        "planName": "标准-智能运动手表-商品卡推广",
+        "planStatus": "投放中",
+        "cost7d": 16000,
+        "roi7d": 2.9,
+        "productName": "智能运动手表",
+        "productStatus": "在售",
+        "stock": null,
+        "stockDays": null,
+        "ordersPerDay": 25,
+        "dataLagMinutes": 15
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [
+          {
+            "label": "数据缺失",
+            "any": [
+              "库存数据",
+              "缺失",
+              "无法判断"
+            ]
+          }
+        ],
+        "actionAny": [
+          "observe",
+          "只观察"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "is-006",
+      "name": "库存 3 天，刚好到暂停线",
+      "input": {
+        "accountId": "acc_inv_6",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_inv_6",
+        "planName": "标准-冷萃茶包组合-达人相似人群",
+        "planStatus": "投放中",
+        "cost7d": 22000,
+        "roi7d": 5.2,
+        "productName": "冷萃茶包组合",
+        "productStatus": "在售",
+        "stock": 90,
+        "stockDays": 3,
+        "ordersPerDay": 30,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "pause",
+        "mustInclude": [],
+        "actionAny": [
+          "pause",
+          "暂停"
+        ],
+        "mustNotInclude": [
+          "apply_budget_change",
+          "加预算"
+        ],
+        "guardrail": [
+          "暂停可回滚"
+        ]
+      }
+    },
+    {
+      "id": "is-007",
+      "name": "库存 4 天，刚好进降预算区",
+      "input": {
+        "accountId": "acc_inv_6",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_inv_6",
+        "planName": "标准-冷萃茶包组合-达人相似人群",
+        "planStatus": "投放中",
+        "cost7d": 22000,
+        "roi7d": 5.2,
+        "productName": "冷萃茶包组合",
+        "productStatus": "在售",
+        "stock": 120,
+        "stockDays": 4,
+        "ordersPerDay": 30,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "reduce",
+        "mustInclude": [],
+        "actionAny": [
+          "reduce",
+          "budget",
+          "-20%",
+          "降 20%"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "加预算"
+        ],
+        "guardrail": [
+          "不直接暂停"
+        ]
+      }
+    },
+    {
+      "id": "is-008",
+      "name": "库存 8 天，刚过降预算区",
+      "input": {
+        "accountId": "acc_inv_6",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_inv_6",
+        "planName": "标准-冷萃茶包组合-达人相似人群",
+        "planStatus": "投放中",
+        "cost7d": 22000,
+        "roi7d": 5.2,
+        "productName": "冷萃茶包组合",
+        "productStatus": "在售",
+        "stock": 240,
+        "stockDays": 8,
+        "ordersPerDay": 30,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe",
+          "只观察"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "is-009",
+      "name": "商品已下架",
+      "input": {
+        "accountId": "acc_inv_6",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_inv_6",
+        "planName": "标准-冷萃茶包组合-达人相似人群",
+        "planStatus": "投放中",
+        "cost7d": 22000,
+        "roi7d": 5.2,
+        "productName": "冷萃茶包组合",
+        "productStatus": "已下架",
+        "stock": 20,
+        "stockDays": 2,
+        "ordersPerDay": 30,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe",
+          "只观察"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不重复提交"
+        ]
+      }
+    },
+    {
+      "id": "is-010",
+      "name": "计划已结束",
+      "input": {
+        "accountId": "acc_inv_6",
+        "accountName": "简味食品旗舰店",
+        "planId": "plan_inv_6",
+        "planName": "标准-冷萃茶包组合-达人相似人群",
+        "planStatus": "已结束",
+        "cost7d": 0,
+        "roi7d": 5.2,
+        "productName": "冷萃茶包组合",
+        "productStatus": "在售",
+        "stock": 20,
+        "stockDays": 2,
+        "ordersPerDay": 30,
+        "dataLagMinutes": 10
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe",
+          "只观察"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不重复提交"
+        ]
+      }
+    }
+  ]
+}

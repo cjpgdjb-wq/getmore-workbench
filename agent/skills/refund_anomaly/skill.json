@@ -1,0 +1,59 @@
+{
+  "id": "refund_anomaly",
+  "name": "退款异常诊断",
+  "version": "0.1",
+  "description": "支付 ROI 好看但退款升高时，判断该降预算还是只观察。",
+  "expertIds": [
+    "analytics",
+    "ads"
+  ],
+  "toolNames": [
+    "query_plans",
+    "compare_periods",
+    "get_account_trend",
+    "apply_budget_change"
+  ],
+  "triggers": [
+    "退款率升高",
+    "净成交变差",
+    "支付 ROI 好看但利润差"
+  ],
+  "steps": [
+    "先看净成交/退款是否授权、是否延迟",
+    "partialAuth=true 视为净成交未授权：只观察，不要用输入里的 netRevenue 硬做判断",
+    "对比本周 vs 上周退款率",
+    "定位退款率异常的计划/商品",
+    "看净成交、支付 ROI、消耗",
+    "退款率 >15% 或环比 +5pp 且 7 天消耗 ≥3,000：降 10%",
+    "单日尖刺、数据缺失、消耗 <3,000、计划已暂停：只观察"
+  ],
+  "output": {
+    "verdict": "reduce | observe",
+    "evidence": [
+      "3 条以内，必须带退款率和净成交"
+    ],
+    "action": "observe 或 budget -10%",
+    "guardrail": [
+      "不暂停",
+      "单次降幅 ≤10%",
+      "净成交未授权时只观察"
+    ],
+    "confidence": "low | medium | high"
+  },
+  "failure": "退款/净成交未授权（partialAuth=true）、计划已暂停、数据延迟、单日尖刺、消耗 <3,000 时，只观察。",
+  "businessProblem": "支付 ROI 达标不代表赚钱；退款率一高，净成交和利润会被吃掉。优化师容易只看支付 ROI，忽略退款和净成交。",
+  "designRationale": "先看退款/净成交是否授权，再对比本周与上周退款率；退款率 >15% 或环比 +5pp，且 7 天消耗 ≥3,000 时降预算 10%；单日尖刺、数据缺失、低消耗（<3,000）只观察，不直接暂停。",
+  "businessMetrics": [
+    "退款率",
+    "净成交金额",
+    "支付 ROI",
+    "回滚率"
+  ],
+  "closedLoop": "技能 → analytics 找退款异常计划 → ads 提交降预算 Decision → 3 天看净成交/退款 → 回写阈值。",
+  "evidence": [
+    "skill 级 5/5",
+    "完整工具链 pass@3 3/3"
+  ],
+  "evalCaseFile": "docs/skills/refund-anomaly.cases.json",
+  "doc": "SKILL.md"
+}

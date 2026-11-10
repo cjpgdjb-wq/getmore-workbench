@@ -1,0 +1,605 @@
+{
+  "generatedAt": 1793862881690,
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "verdictMatches": 10,
+    "forbiddenHits": 0
+  },
+  "results": [
+    {
+      "id": "br-001",
+      "name": "低 ROI 账户 → 高 ROI 账户",
+      "expectedVerdict": "reallocate",
+      "actualVerdict": "reallocate",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "暂停",
+          "hit": false
+        },
+        {
+          "keyword": "增加总预算",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=2, 降=1, 加=1, deltas=-10/10"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "reallocate",
+        "moves": [
+          {
+            "accountId": "1723560000014109",
+            "accountName": "星野数码旗舰店",
+            "deltaPct": -10,
+            "reason": "7日ROI 2.98，低于目标3.5（缺口14.9%）；7日消耗60724，为账户内消耗高但ROI不达标的一方，因此作为预算调出方；已先 simulate 确认下调10%（约1800元/日）后不影响在投计划起量"
+          },
+          {
+            "accountId": "1723560000009224",
+            "accountName": "简味食品旗舰店",
+            "deltaPct": 10,
+            "reason": "7日ROI 5.28，高于目标3.5达50.9%，7日消耗97306，占预算约70%，仍有承接空间；余额8天≥3天、库存30天≥7天，已 simulate 确认上调10%（约1980元/日）后库存与余额可支撑"
+          }
+        ],
+        "evidence": [
+          "星野数码 ROI 2.98 vs 目标 3.5，缺口 -14.9%，7日消耗 60724 为账户内高消耗低效方",
+          "简味食品 ROI 5.28 vs 目标 3.5，超出 +50.9%，7日消耗 97306，日均约占预算 70%，具备加量空间",
+          "两侧健康度：数据延迟 12/9 分钟、无授权缺失；简味余额 8 天≥3 天、库存 30 天≥7 天，星野库存 20 天、余额 12 天均达标"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 862,
+        "total_tokens": 1522,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 489
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 148
+      }
+    },
+    {
+      "id": "br-002",
+      "name": "没有高 ROI 承接账户",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "只观察",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=0, 降=0, 加=0, deltas=--"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "moves": [],
+        "evidence": [
+          "账户 A 的 roi7d 为 2.5，低于目标 3.5，且 cost7d 为 30000，是消耗最高的账户；但它不是清晰可用的 donor。",
+          "账户 B 的 roi7d 为 2.8，也低于目标 3.5；两个账户的 ROI 都未达标，因此没有 ROI 高于目标且有承接空间的 recipient。",
+          "数据健康正常：dataLagMinutes 分别为 10 和 11，partialAuth 均为 false；库存天数分别为 20 天和 18 天，余额天数分别为 10 天和 8 天，但这些不改变“缺少高 ROI recipient”的结论。"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 432,
+        "total_tokens": 1080,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 239
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 136
+      }
+    },
+    {
+      "id": "br-003",
+      "name": "承接账户库存/余额不足",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "只观察",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=0, 降=0, 加=0, deltas=--"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "moves": [],
+        "evidence": [
+          "账户C roi7d=2.6 < 目标3.5，cost7d=28000，属于低ROI高消耗donor候选",
+          "账户D roi7d=4.8 > 目标3.5，但balanceDays=1 < 3且stockDays=2 < 7，recipient余额/库存空间不足",
+          "两账户partialAuth=false，最大dataLagMinutes=15；数据健康未阻断，但recipient约束不满足"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 535,
+        "total_tokens": 1183,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 390
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 136
+      }
+    },
+    {
+      "id": "br-004",
+      "name": "数据延迟 + 部分授权",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "数据健康",
+          "hit": true
+        },
+        {
+          "keyword": "只观察",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=0, 降=0, 加=0, deltas=--"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "moves": [],
+        "evidence": [
+          "账户 E：ROI7d 2.4，低于目标 3.5，7 天消耗 30000，属于低 ROI 高消耗候选 donor",
+          "账户 F：ROI7d 4.6，高于目标 3.5，7 天消耗 9000，库存 22 天、余额 9 天，属于候选 recipient",
+          "但两账户 partialAuth=true，dataLag 分别为 95/90 分钟，数据健康不足，先不提交重排动作"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "low"
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 500,
+        "total_tokens": 1148,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 346
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 136
+      }
+    },
+    {
+      "id": "br-005",
+      "name": "承接账户库存/余额偏紧",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [
+        {
+          "keyword": "库存",
+          "hit": true
+        },
+        {
+          "keyword": "余额",
+          "hit": true
+        },
+        {
+          "keyword": "只观察",
+          "hit": true
+        }
+      ],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=0, 降=0, 加=0, deltas=--"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "moves": [],
+        "evidence": [
+          "账户 G 的 roi7d=2.7，低于目标 3.5，低 0.8，且 cost7d=26000 为最高消耗，符合 donor（出让方）特征",
+          "账户 H 的 roi7d=4.7，高于目标 3.5，高 1.2，但 stockDays=3，低于 7 天门槛，recipient（接收方）库存空间不足",
+          "账户 H 的 balanceDays=2，低于 3 天门槛；账户 G 的 balanceDays=8、stockDays=20，但接收方不满足余额和库存护栏，因此只观察"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "high"
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 492,
+        "total_tokens": 1140,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 309
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 136
+      }
+    },
+    {
+      "id": "br-006",
+      "name": "库存/余额刚好达护栏",
+      "expectedVerdict": "reallocate",
+      "actualVerdict": "reallocate",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "暂停",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=2, 降=1, 加=1, deltas=-10/10"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "reallocate",
+        "moves": [
+          {
+            "accountId": "acc_9",
+            "accountName": "账户 I",
+            "deltaPct": -10,
+            "reason": "ROI 2.7 低于目标 3.5 且 7 日消耗 26000 为最高，作为低 ROI 高消耗 donor 降预算 10%"
+          },
+          {
+            "accountId": "acc_10",
+            "accountName": "账户 J",
+            "deltaPct": 10,
+            "reason": "ROI 4.8 高于目标 3.5，库存 7 天、余额 8 天满足护栏，作为 recipient 加预算 10%"
+          }
+        ],
+        "evidence": [
+          "账户 I：ROI 2.7 < 目标 3.5，7 日消耗 26000，为高消耗低 ROI donor",
+          "账户 J：ROI 4.8 > 目标 3.5，7 日消耗 8000，库存 7 天、余额 8 天具备承接空间",
+          "数据健康：两账户延迟 10 分钟、无部分授权、关键字段完整"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 689,
+        "total_tokens": 1337,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 431
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 392
+      }
+    },
+    {
+      "id": "br-007",
+      "name": "只有一个账户",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=0, 降=0, 加=0, deltas=--"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "moves": [],
+        "evidence": [
+          "账户 I 的 ROI7d 为 2.7，低于目标 3.5，且 cost7d 为 26000，高于 budget 10000",
+          "当前仅 1 个账户，没有找到 ROI 高于目标且仍有库存和余额空间的 recipient",
+          "数据健康：dataLagMinutes 为 10，partialAuth=false，stockDays=7，balanceDays=8"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 551,
+        "completion_tokens": 329,
+        "total_tokens": 880,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 199
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 167
+      }
+    },
+    {
+      "id": "br-008",
+      "name": "承接账户库存 6 天",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=0, 降=0, 加=0, deltas=--"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "moves": [],
+        "evidence": [
+          "账户 I（acc_9）ROI 2.7 低于目标 3.5，缺口 0.8（约 23%），7 天消耗 26000，是账户 K 的 3.25 倍，具备 donor 特征",
+          "账户 K（acc_11）ROI 4.8 高于目标 3.5（超出 37%），7 天消耗仅 8000、预算 5000，是唯一 recipient 候选",
+          "账户 K 库存仅 6 天 < 7 天护栏，扩容会加剧缺货风险；两侧 dataLagMinutes 均为 10、partialAuth 均为 false，数据健康正常"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 402,
+        "total_tokens": 1050,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 211
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 136
+      }
+    },
+    {
+      "id": "br-009",
+      "name": "承接账户 ROI 刚好等于目标",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=0, 降=0, 加=0, deltas=--"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "moves": [],
+        "evidence": [
+          "账户 I ROI 2.7，低于目标 3.5，且 7 日消耗 26000，为高消耗低 ROI donor 候选",
+          "账户 L ROI 3.5，仅等于目标 3.5，不满足“ROI 高于目标”的 recipient 条件",
+          "两账户库存均为 7 天、余额均为 8 天，数据延迟 10 分钟且无部分授权缺失，但无清晰合格 recipient"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 457,
+        "total_tokens": 1105,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 313
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 136
+      }
+    },
+    {
+      "id": "br-010",
+      "name": "数据延迟 + 部分授权",
+      "expectedVerdict": "observe",
+      "actualVerdict": "observe",
+      "verdictMatch": true,
+      "includes": [],
+      "excludes": [
+        {
+          "keyword": "加预算",
+          "hit": false
+        },
+        {
+          "keyword": "+10%",
+          "hit": false
+        }
+      ],
+      "moveResult": {
+        "pass": true,
+        "actual": "moves=0, 降=0, 加=0, deltas=--"
+      },
+      "actionHit": true,
+      "noForbidden": true,
+      "pass": true,
+      "output": {
+        "verdict": "observe",
+        "moves": [],
+        "evidence": [
+          "acc_9 roi7d=2.7 < roiGoal=3.5 且 cost7d=26000，为低ROI高消耗候选",
+          "acc_13 roi7d=4.8 > roiGoal=3.5 且 cost7d=8000，为高ROI候选",
+          "两账户 partialAuth=true 且 dataLagMinutes=60，数据健康未完全通过，暂不提交动作"
+        ],
+        "guardrail": [
+          "不暂停",
+          "不增加总预算",
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ],
+        "confidence": "medium"
+      },
+      "usage": {
+        "prompt_tokens": 648,
+        "completion_tokens": 1084,
+        "total_tokens": 1732,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 948
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 136
+      }
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "skillId": "learning_phase_diagnosis",
+  "version": "0.1",
+  "note": "3 个离线 case，用于人工/LLM 评测；不是线上 A/B。",
+  "cases": [
+    {
+      "id": "lp-001",
+      "name": "学习期低 ROI，样本足够",
+      "input": {
+        "accountId": "acc_demo_001",
+        "planId": "plan_demo_001",
+        "planName": "标准-轻透防晒霜-直播间引流",
+        "learningDay": 5,
+        "roi7d": 2.8,
+        "roiGoal": 3.5,
+        "conversionsPerDay": 30,
+        "costShare": 0.32,
+        "stockDays": 20,
+        "balanceDays": 5,
+        "dataLagMinutes": 12,
+        "partialAuth": false
+      },
+      "expected": {
+        "verdict": "reduce",
+        "mustInclude": [
+          {
+            "label": "学习期",
+            "any": [
+              "学习期",
+              "学习第5天"
+            ]
+          },
+          {
+            "label": "预算 -10%",
+            "any": [
+              "预算 -10%",
+              "budget -10%",
+              "预算降低10%"
+            ]
+          }
+        ],
+        "mustNotInclude": [
+          "暂停计划",
+          "加预算"
+        ],
+        "guardrail": [
+          "GMV ≥ -5%",
+          "库存 ≥7 天"
+        ]
+      }
+    },
+    {
+      "id": "lp-002",
+      "name": "学习期样本不足",
+      "input": {
+        "accountId": "acc_demo_002",
+        "planId": "plan_demo_002",
+        "planName": "标准-智能运动手表-商品卡推广",
+        "learningDay": 2,
+        "roi7d": 2.6,
+        "roiGoal": 4.0,
+        "conversionsPerDay": 8,
+        "costShare": 0.18,
+        "stockDays": 30,
+        "balanceDays": 6,
+        "dataLagMinutes": 18,
+        "partialAuth": false
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "mustNotInclude": [
+          "预算 -10%",
+          "暂停计划"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ],
+        "actionAny": [
+          "observe"
+        ]
+      }
+    },
+    {
+      "id": "lp-003",
+      "name": "学习期但库存/余额不足",
+      "input": {
+        "accountId": "acc_demo_003",
+        "planId": "plan_demo_003",
+        "planName": "全域-每日坚果礼盒-短视频带货",
+        "learningDay": 8,
+        "roi7d": 3.0,
+        "roiGoal": 3.5,
+        "conversionsPerDay": 25,
+        "costShare": 0.45,
+        "stockDays": 2,
+        "balanceDays": 1,
+        "dataLagMinutes": 35,
+        "partialAuth": true
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "mustNotInclude": [
+          "加预算",
+          "预算 -10%"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ],
+        "actionAny": [
+          "observe"
+        ]
+      }
+    },
+    {
+      "id": "lp-004",
+      "name": "数据延迟 + 部分授权",
+      "input": {
+        "accountId": "acc_demo_004",
+        "planId": "plan_demo_004",
+        "planName": "标准-氨基酸洁面乳-商品卡推广",
+        "learningDay": 6,
+        "roi7d": 2.4,
+        "roiGoal": 4.0,
+        "conversionsPerDay": 22,
+        "costShare": 0.28,
+        "stockDays": 15,
+        "balanceDays": 5,
+        "dataLagMinutes": 95,
+        "partialAuth": true
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "mustNotInclude": [
+          "预算 -10%",
+          "暂停计划"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ],
+        "actionAny": [
+          "observe"
+        ]
+      }
+    },
+    {
+      "id": "lp-005",
+      "name": "库存和余额同时偏紧",
+      "input": {
+        "accountId": "acc_demo_005",
+        "planId": "plan_demo_005",
+        "planName": "全域-冻干咖啡 24 颗-爆品追投",
+        "learningDay": 9,
+        "roi7d": 2.9,
+        "roiGoal": 3.5,
+        "conversionsPerDay": 25,
+        "costShare": 0.38,
+        "stockDays": 3,
+        "balanceDays": 2,
+        "dataLagMinutes": 10,
+        "partialAuth": false
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "mustNotInclude": [
+          "预算 -10%",
+          "加预算"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ],
+        "actionAny": [
+          "observe"
+        ]
+      }
+    },
+    {
+      "id": "lp-006",
+      "name": "转化 19/天，刚好低于样本门槛",
+      "input": {
+        "accountId": "acc_demo_006",
+        "planId": "plan_demo_006",
+        "planName": "标准-轻透防晒霜-直播间引流",
+        "learningDay": 6,
+        "roi7d": 3.0,
+        "roiGoal": 3.5,
+        "conversionsPerDay": 19,
+        "costShare": 0.25,
+        "stockDays": 20,
+        "balanceDays": 5,
+        "dataLagMinutes": 10,
+        "partialAuth": false
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "lp-007",
+      "name": "转化 20/天，刚好达到样本门槛",
+      "input": {
+        "accountId": "acc_demo_006",
+        "planId": "plan_demo_006",
+        "planName": "标准-轻透防晒霜-直播间引流",
+        "learningDay": 6,
+        "roi7d": 3.0,
+        "roiGoal": 3.5,
+        "conversionsPerDay": 20,
+        "costShare": 0.25,
+        "stockDays": 20,
+        "balanceDays": 5,
+        "dataLagMinutes": 10,
+        "partialAuth": false
+      },
+      "expected": {
+        "verdict": "reduce",
+        "mustInclude": [],
+        "actionAny": [
+          "reduce",
+          "budget",
+          "-10%"
+        ],
+        "mustNotInclude": [
+          "pause_plan"
+        ],
+        "guardrail": [
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ]
+      }
+    },
+    {
+      "id": "lp-008",
+      "name": "库存 7 天、余额 3 天，刚好达护栏",
+      "input": {
+        "accountId": "acc_demo_006",
+        "planId": "plan_demo_006",
+        "planName": "标准-轻透防晒霜-直播间引流",
+        "learningDay": 6,
+        "roi7d": 3.0,
+        "roiGoal": 3.5,
+        "conversionsPerDay": 30,
+        "costShare": 0.25,
+        "stockDays": 7,
+        "balanceDays": 3,
+        "dataLagMinutes": 10,
+        "partialAuth": false
+      },
+      "expected": {
+        "verdict": "reduce",
+        "mustInclude": [],
+        "actionAny": [
+          "reduce",
+          "budget",
+          "-10%"
+        ],
+        "mustNotInclude": [
+          "pause_plan"
+        ],
+        "guardrail": [
+          "库存 ≥7 天",
+          "余额 ≥3 天"
+        ]
+      }
+    },
+    {
+      "id": "lp-009",
+      "name": "数据延迟 60 分钟",
+      "input": {
+        "accountId": "acc_demo_006",
+        "planId": "plan_demo_006",
+        "planName": "标准-轻透防晒霜-直播间引流",
+        "learningDay": 6,
+        "roi7d": 3.0,
+        "roiGoal": 3.5,
+        "conversionsPerDay": 19,
+        "costShare": 0.25,
+        "stockDays": 20,
+        "balanceDays": 5,
+        "dataLagMinutes": 60,
+        "partialAuth": false
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不提交动作"
+        ]
+      }
+    },
+    {
+      "id": "lp-010",
+      "name": "计划已暂停，不重复提交",
+      "input": {
+        "accountId": "acc_demo_006",
+        "planId": "plan_demo_006",
+        "planName": "标准-轻透防晒霜-直播间引流",
+        "learningDay": 6,
+        "roi7d": 3.0,
+        "roiGoal": 3.5,
+        "conversionsPerDay": 19,
+        "costShare": 0.25,
+        "stockDays": 20,
+        "balanceDays": 5,
+        "dataLagMinutes": 10,
+        "partialAuth": false,
+        "planStatus": "已暂停",
+        "cost7d": 0
+      },
+      "expected": {
+        "verdict": "observe",
+        "mustInclude": [],
+        "actionAny": [
+          "observe"
+        ],
+        "mustNotInclude": [
+          "pause_plan",
+          "apply_budget_change"
+        ],
+        "guardrail": [
+          "不重复提交"
+        ]
+      }
+    }
+  ]
+}
