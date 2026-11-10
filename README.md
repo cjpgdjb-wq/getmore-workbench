@@ -34,8 +34,6 @@
 - 点技能：查看触发条件、步骤、输出、失败处理；
 - 点工具：查看风险（只读/可写/高风险）、绑定专家、参数。
 
-![专家团队](docs/screenshots/121-partner-team.png)
-
 ![技能详情](docs/screenshots/126-skill-detail.png)
 
 ### 工作痕迹

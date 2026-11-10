@@ -62,9 +62,9 @@ export default function AppHeader() {
         </button>
         <span className="header-sep" />
         <div className="user-chip" title="优化师">
-          <span className="avatar">陈</span>
+          <span className="avatar">示</span>
           <span className="user-meta">
-            <span className="user-name">陈嘉平</span>
+            <span className="user-name">示例用户</span>
             <span className="user-role">优化师</span>
           </span>
         </div>
